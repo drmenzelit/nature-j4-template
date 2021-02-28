@@ -1,0 +1,15 @@
+footer {
+  color: var(--footercolor);
+  background-color: var(--footerbg);
+  padding: var(--s2) var(--s2);
+  font-weight: 600;
+}
+footer a {
+  color: var(--footercolor);
+}
+footer .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}

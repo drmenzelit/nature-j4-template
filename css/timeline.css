@@ -1,0 +1,107 @@
+#timeline .timeline-item:after, 
+#timeline .timeline-item:before {
+  content: "";
+  display: block;
+  width: 100%;
+  clear: both;
+}
+#timeline {
+  width: 100%;
+  margin: 30px auto;
+  position: relative;
+  padding: 0 var(--s1);
+  transition: all 0.4s ease;
+}
+#timeline:before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background: var(--btnbg);
+  left: 50%;
+  top: 0;
+  position: absolute;
+}
+#timeline:after {
+  content: "";
+  clear: both;
+  display: table;
+  width: 100%;
+}
+#timeline .timeline-item {
+  margin-bottom: 50px;
+  position: relative;
+}
+#timeline .timeline-item .timeline-icon {
+  background: var(--btnbg);
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 13px;
+  left: 51%;
+  overflow: hidden;
+  margin-left: -23px;
+  border-radius: 50%;
+}
+#timeline .timeline-item .timeline-content {
+  width: 45%;
+  background: #fbfbfb;
+  padding: var(--s1);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+#timeline .timeline-item .timeline-content h2 {
+  padding: var(--s1);
+  background: var(--btnbg);
+  color: #fff;
+  margin: calc(var(--s1)*-1) calc(var(--s1)*-1) var(--s1) calc(var(--s1)*-1);
+  font-size: 1.5rem;
+}
+#timeline .timeline-item .timeline-content p {
+    margin-top: var(--s1);
+}
+#timeline .timeline-item .timeline-content:before {
+  content: "";
+  position: absolute;
+  left: 45%;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid var(--btnbg);
+}
+#timeline .timeline-item:nth-child(even) .timeline-content {
+  float: right;
+}
+#timeline .timeline-item:nth-child(even) .timeline-content:before {
+  content: "";
+  right: 45%;
+  left: inherit;
+  border-left: 0;
+  border-right: 7px solid var(--btnbg);
+}
+
+@media screen and (max-width: 768px) {
+  #timeline {
+    margin: 30px;
+    padding: 0px;
+    width: 90%;
+  }
+  #timeline:before {
+    left: 0;
+  }
+  #timeline .timeline-item .timeline-content {
+    width: 90%;
+    float: right;
+  }
+  #timeline .timeline-item .timeline-content:before,
+  #timeline .timeline-item:nth-child(even) .timeline-content:before {
+    left: 10%;
+    margin-left: -6px;
+    border-left: 0;
+    border-right: 7px solid var(--btnbg);
+  }
+  #timeline .timeline-item .timeline-icon {
+    left: 0;
+  }
+}

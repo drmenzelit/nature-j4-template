@@ -1,0 +1,111 @@
+.blog-items {
+  display: grid;
+  margin: 0 0 var(--s1);
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-gap: var(--s2);
+}
+.blog-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+@media (min-width: 800px) {
+  .blog-items.columns-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .blog-items.columns-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .blog-items.columns-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .blog-items.image-left > .blog-item,
+  .blog-items.image-right > .blog-item,
+  .blog-items.image-alternate > .blog-item {
+    flex-direction: row;
+  }
+  .blog-items.image-left > .blog-item .item-image,
+  .blog-items.image-right > .blog-item .item-image,
+  .blog-items.image-alternate > .blog-item .item-image {
+    flex: 1 0 40%;
+  }
+  .blog-items.image-left > .blog-item .item-image {
+    padding-right: var(--s2);
+  }
+  .blog-items.image-right > .blog-item .item-image {
+    padding-left: var(--s2);
+    order: 1;
+  }
+  .image-alternate .blog-item .item-image {
+    padding-right: var(--s2);
+  }
+  .image-alternate .blog-item:nth-of-type(2n+1) .item-image {
+    padding-left: var(--s2);
+    order: 1;
+  }
+}
+
+/* Cards */
+.shadow .blog-item {
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+.shadow .blog-item:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+.shadow .blog-item h2 a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.shadow .item-content {
+  padding: 0 var(--s1) var(--s1);
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+.shadow .item-content .readmore {
+  margin-top: auto;
+}
+.item-image {
+  margin-bottom: var(--s1);
+}
+.item-page .left {
+  float: left;
+  margin-right: var(--s1);
+}
+.item-page .right {
+  float: right;
+  margin-left: var(--s1);
+}
+.page-header a {
+  text-decoration: none;
+}
+.article-info {
+  margin-bottom: var(--s1);
+  font-size: 1rem;
+}
+.tags a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+.tags a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.com-users-login__options a {
+  display: block;
+}
+.com-users-login__remember {
+  display: flex;
+  align-items: center;
+}
+.com-users-login__remember > .control-label {
+  order: 1;
+}

@@ -1,0 +1,35 @@
+/* palanquin-300 - latin */
+@font-face {
+  font-family: 'Palanquin';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../fonts/palanquin-v6-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../fonts/palanquin-v6-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/palanquin-v6-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/palanquin-v6-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('../../fonts/palanquin-v6-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/palanquin-v6-latin-300.svg#Palanquin') format('svg'); /* Legacy iOS */
+  font-display: swap;
+}
+
+/* palanquin-600 - latin */
+@font-face {
+  font-family: 'Palanquin';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../../fonts/palanquin-v6-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../fonts/palanquin-v6-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/palanquin-v6-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/palanquin-v6-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../../fonts/palanquin-v6-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/palanquin-v6-latin-600.svg#Palanquin') format('svg'); /* Legacy iOS */
+  font-display: swap;
+}
+:root {
+  --font-family-body: "Palanquin", sans-serif;
+  --font-family-headings: "Palanquin", sans-serif;
+  --font-weight-headings: 600;
+  --font-weight-normal: 300;
+}

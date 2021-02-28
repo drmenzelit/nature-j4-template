@@ -1,0 +1,45 @@
+.js-stools-container-bar {
+  padding: var(--s1) var(--s2);
+}
+.js-stools-container-bar .btn-toolbar {
+  justify-content: flex-end;
+}
+.js-stools-container-bar .btn-toolbar > * {
+  display: inline-flex;
+  -webkit-margin-end: 8px;
+          margin-inline-end: 8px;
+}
+.js-stools-container-bar .btn-toolbar .js-stools-btn-clear {
+  background-color: var(--grey1);
+  border-color: var(--grey1);
+  color: #fff;
+}
+.js-stools-container-bar .ordering-select {
+  display: flex;
+}
+
+.js-stools-container-filters {
+  display: none;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.js-stools-container-filters-visible {
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  padding: 10px;
+  background-color: white;
+}
+.js-stools-container-filters > * {
+  margin: 4px 0;
+  -webkit-margin-end: 8px;
+          margin-inline-end: 8px;
+}
+
+.js-stools-field-list + .js-stools-field-list {
+  -webkit-margin-start: 8px;
+          margin-inline-start: 8px;
+}
+.js-stools-field-list {
+  margin: var(--s0) 0;
+}

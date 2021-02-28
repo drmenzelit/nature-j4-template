@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "nature",
+  "version": "4.0.0",
+  "description": "This file contains details of the assets used by Cassiopeia, the default Joomla 4 site template.",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.nature",
+      "description": "The css file to be used.",
+      "type": "style",
+      "uri": "template.css"
+    },
+    {
+      "name": "template.offline",
+      "description": "The css file to be used when the site is offline and offline.php is being used.",
+      "type": "style",
+      "uri": "offline.css"
+    },
+    {
+      "name": "template.user",
+      "description": "A file where a user can add their own css.",
+      "type": "style",
+      "uri": "user.css",
+      "dependencies": [
+        "template.nature"
+      ]
+    },
+    {
+      "name": "template.nature",
+      "description": "The file containing the javascript for this template.",
+      "type": "script",
+      "uri": "template.js",
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.user",
+      "description": "The name of a file where a user can add their own javascript",
+      "type": "script",
+      "uri":  "user.js",
+      "dependencies": [
+        "template.nature"
+      ]
+    },
+    {
+      "name": "template.nature",
+      "type": "preset",
+      "dependencies": [
+        "template.nature#style",
+        "template.nature#script"
+      ]
+    },
+    {
+      "name": "searchtools",
+      "type": "style",
+      "uri": "system/searchtools/searchtools.min.css"
+    },
+    {
+      "name": "fontawesome",
+      "type": "style",
+      "uri": "media/system/css/joomla-fontawesome.min.css"
+    }
+
+  ]
+}

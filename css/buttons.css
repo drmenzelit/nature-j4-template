@@ -1,0 +1,73 @@
+.btn {
+  padding: var(--s1);
+  display: inline-block;
+  cursor: pointer;
+}
+a.btn {
+  text-decoration: none;
+}
+.btn-primary,
+.readmore .btn {
+  margin: var(--s0) 0;
+  background-color: var(--btnbg);
+  color: var(--btncolor);
+  border: 1px solid var(--btnbg);
+}
+.btn-primary:hover,
+.readmore .btn:hover {
+  background-color: var(--btnbgh);
+  color: var(--btncolorh);
+  border-color: var(--btnbgh);
+}
+.btn-secondary {
+  border: 1px solid #ced4da;
+}
+.btn-secondary:hover {
+  background-color: var(--grey1);
+}
+.readmore .btn {
+  padding: var(--s1);
+  margin: var(--s2) 0;
+  text-decoration: none;
+}
+.btn-sm {
+  padding: .5rem;
+  font-size: .9rem;
+}
+.btn-info {
+  background-color: var(--info);
+  border: 1px solid var(--info);
+}
+.btn-info:hover {
+  background-color: var(--infoh);
+  border-color: var(--info);
+}
+.btn-success {
+  background-color: var(--success);
+  border: 1px solid var(--success);
+}
+.btn-success:hover {
+  background-color: var(--successh);
+  border-color: var(--successh);
+}
+.btn-danger {
+  background-color: var(--danger);
+  border: 1px solid var(--danger);
+}
+.btn-danger:hover {
+  background-color: var(--dangerh);
+  border-color: var(--dangerh);
+}
+.btn-warning {
+  background-color: var(--warning);
+  border: 1px solid var(--warning);
+}
+.btn-warning:hover {
+  background-color: var(--warningh);
+  border-color: var(--warningh);
+}
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
