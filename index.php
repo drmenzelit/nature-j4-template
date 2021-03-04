@@ -31,20 +31,27 @@ $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 // Template path
 $templatePath = 'templates/' . $this->template;
 
+// Icons 
+$search = '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg>';
+$open = '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg>';
+
 // Load burgerMenu
 $hasBurger = '';
 
 if ($this->params->get('burgerMenu') == 1)
 {
-	$wa->registerAndUseScript('burger', $templatePath . '/js/burger-menu.js');
-	$hasBurger .= 'with-burger';
+	$hasBurger .= 'navbar__with-burger';
 }
 
 // Load FontAwesome
 if ($this->params->get('fontawesome') == 1)
 {
 	$wa->useStyle('fontawesome');
-	//$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
+	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 }
 
 // Use a font scheme if set in the template style options
@@ -120,8 +127,8 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<?php endif; ?>
 	<header class="header <?php echo $stickyHeader; ?>">
 		<a href="#main" class="skip-link">Skip to main content</a>
-		<div class="wrapper">
-			<div class="navbar-brand">
+		<div class="wrapper header__wrapper">
+			<div class="header__start navbar-brand">
 				<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
 					<?php echo $logo; ?>
 				</a>
@@ -129,25 +136,26 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 					<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
 				<?php endif; ?>
 			</div>
-			<?php if ($this->countModules('menu', true)) : ?>
-				<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
-					<jdoc:include type="modules" name="menu" style="none" />
-				</nav>
-			<?php endif; ?>
-
 			<?php if (($this->countModules('menu', true)) || ($this->countModules('search', true))) : ?>
-				<div class="container-buttons">
-					<?php if (($this->countModules('menu', true)) && ($this->params->get('burgerMenu') == 1) ): ?>
-					<span hidden id="menu-label">Main menu</span>
-					<button class="menu-toggle" id="menu-toggle" aria-labelledby="menu-label" aria-expanded="false">Menu</button>
+			<div class="header__end">
+				<?php if ($this->countModules('menu', true)) : ?>
+					<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
+					<?php if ($this->params->get('burgerMenu') == 1): ?>
+						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="menu"><?php echo $open; ?></button>
 					<?php endif; ?>
-					<?php if ($this->countModules('search', true)) : ?>
-					<button class="search-icon" id="search-icon" aria-label="Search"></button>
+						<jdoc:include type="modules" name="menu" style="none" />
+					</nav>
+				<?php endif; ?>
+
+				<?php if ($this->countModules('search', true)) : ?>
+				<div class="search">
+					<button class="search__toggle" aria-label="Open search"><?php echo $search; ?></button>
 					<div class="container-search">
 						<jdoc:include type="modules" name="search" style="none" />
 					</div>
-					<?php endif; ?>
 				</div>
+				<?php endif; ?>
+			</div>
 			<?php endif; ?>
 		</div>
 	</header>
@@ -220,7 +228,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 
 	<?php if ($this->countModules('footer', true)) : ?>
 	<footer class="container-footer">
-		<div class="wrapper">
+		<div class="wrapper container-footer_wrapper">
 			<jdoc:include type="modules" name="footer" style="none" />
 		</div>
 	</footer>

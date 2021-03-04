@@ -41,6 +41,7 @@ a.btn {
 .btn-info:hover {
   background-color: var(--infoh);
   border-color: var(--info);
+  color: #fff;
 }
 .btn-success {
   background-color: var(--success);
@@ -49,6 +50,7 @@ a.btn {
 .btn-success:hover {
   background-color: var(--successh);
   border-color: var(--successh);
+  color: #fff;
 }
 .btn-danger {
   background-color: var(--danger);
@@ -57,6 +59,7 @@ a.btn {
 .btn-danger:hover {
   background-color: var(--dangerh);
   border-color: var(--dangerh);
+  color: #fff;
 }
 .btn-warning {
   background-color: var(--warning);
@@ -65,6 +68,7 @@ a.btn {
 .btn-warning:hover {
   background-color: var(--warningh);
   border-color: var(--warningh);
+  color: #fff;
 }
 .btn-toolbar {
   display: flex;

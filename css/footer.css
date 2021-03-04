@@ -7,7 +7,7 @@ footer {
 footer a {
   color: var(--footercolor);
 }
-footer .wrapper {
+.container-footer_wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

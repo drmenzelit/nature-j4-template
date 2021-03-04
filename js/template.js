@@ -36,37 +36,43 @@ Joomla = window.Joomla || {};
 			});
 		}
 
-		/**
-		 * Search toggle
-		 */
-		// Select the button on which the 
-        // class has to be toggled 
-        const searchToggle = document.querySelector("#search-icon");
-		const search = document.querySelector(".container-search");
-  
-		// Select the entire HTML document 
-		const html = document.querySelector("html"); 
+		let navToggle = document.querySelector(".nav__toggle");
+		let navWrapper = document.querySelector(".navbar__with-burger .mod-menu");
 		
-		if (backToTop) {
-			// Add an event listener for  
-			// a click to the button 
-			searchToggle.addEventListener("click", function () { 
-	
-				// Add the required class 
-				search.classList.toggle("open"); 
-			}); 
-		}
-        // Add an event listener for a 
-        // click to the html document 
-        html.addEventListener("click", function (e) { 
-  
-            // If the element that is clicked on is 
-            // not the button itself, then remove 
-            // the class that was added earlier 
-            if (e.target !== searchToggle) {
-				search.classList.remove("open"); 
+		if (navToggle) {
+			navToggle.addEventListener("click", function () {
+			if (navWrapper.classList.contains("active")) {
+				this.setAttribute("aria-expanded", "false");
+				this.setAttribute("aria-label", "menu");
+				navWrapper.classList.remove("active");
+			} else {
+				navWrapper.classList.add("active");
+				this.setAttribute("aria-label", "close menu");
+				this.setAttribute("aria-expanded", "true");
+				searchForm.classList.remove("active");
+				searchToggle.classList.remove("active");
 			}
-		}); 
+			});
+		}
+		let searchToggle = document.querySelector(".search__toggle");
+		let searchForm = document.querySelector(".container-search");
+		
+		searchToggle.addEventListener("click", showSearch);
+		
+		function showSearch() {
+		  searchForm.classList.toggle("active");
+		  searchToggle.classList.toggle("active");
+		  if (navToggle) {
+			navToggle.setAttribute("aria-expanded", "false");
+		  	navToggle.setAttribute("aria-label", "menu");
+		  	navWrapper.classList.remove("active");
+		  }
+		  if (searchToggle.classList.contains("active")) {
+			searchToggle.setAttribute("aria-label", "Close search");
+		  } else {
+			searchToggle.setAttribute("aria-label", "Open search");
+		  }
+		}
 	});
 
 	/**

@@ -17,15 +17,16 @@
 */
 
 :root {
-  --success: #63e39f;
-  --info: #32abdb;
-  --warning: #db8a32;
-  --danger: #db324d;
-  --successh: #22bf6b;
-  --infoh: #1f85ad;
-  --warningh: #bf7322;
-  --dangerh: #ad1f36;
-  --grey1: #707070;
+  --success: hsl(148, 70%, 64%);
+  --info: hsl(197, 70%, 53%);
+  --warning: hsl(31, 70%, 53%);
+  --danger: hsl(350, 70%, 53%);
+  --successh: hsl(148, 70%, 44%);
+  --infoh: hsl(197, 70%, 40%);
+  --warningh: hsl(31, 70%, 44%);
+  --dangerh: hsl(350, 70%, 40%);
+  --grey1: hsl(0, 0%, 44%);
+  --grey2: hsl(0, 0%, 34%);
   --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --s0: .5rem;
   --s1: 1rem;
