@@ -21,13 +21,13 @@
 .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  margin: .5rem;
   pointer-events: none;
 }
 .modal.fade .modal-dialog {
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
   -webkit-transform: translate(0, -50px);
           transform: translate(0, -50px);
 }
@@ -67,10 +67,10 @@
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: white;
+  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: .3rem;
   outline: 0;
 }
 .modal-backdrop {
@@ -80,27 +80,27 @@
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: #000;
 }
 .modal-backdrop.fade {
   opacity: 0;
 }
 .modal-backdrop.show {
-  opacity: 0.5;
+  opacity: .5;
 }
 .modal-header {
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 1rem;
   border-bottom: 1px solid #dfe3e7;
-  border-top-left-radius: calc(0.3rem - 1px);
-  border-top-right-radius: calc(0.3rem - 1px);
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
 }
 .modal-header .btn-close {
-  padding: 0.5rem 0.5rem;
-  margin: -0.5rem -0.5rem -0.5rem auto;
+  padding: .5rem;
+  margin: -.5rem -.5rem -.5rem auto;
 }
 .modal-title {
   margin-bottom: 0;
@@ -117,13 +117,13 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: flex-end;
-  padding: 0.75rem;
+  padding: .75rem;
   border-top: 1px solid #dfe3e7;
-  border-bottom-right-radius: calc(0.3rem - 1px);
-  border-bottom-left-radius: calc(0.3rem - 1px);
+  border-bottom-right-radius: calc(.3rem - 1px);
+  border-bottom-left-radius: calc(.3rem - 1px);
 }
 .modal-footer > * {
-  margin: 0.25rem;
+  margin: .25rem;
 }
 .modal-scrollbar-measure {
   position: absolute;

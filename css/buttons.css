@@ -1,6 +1,6 @@
 .btn {
-  padding: var(--s1);
   display: inline-block;
+  padding: var(--s1);
   cursor: pointer;
 }
 a.btn {
@@ -9,14 +9,14 @@ a.btn {
 .btn-primary,
 .readmore .btn {
   margin: var(--s0) 0;
-  background-color: var(--btnbg);
   color: var(--btncolor);
+  background-color: var(--btnbg);
   border: 1px solid var(--btnbg);
 }
 .btn-primary:hover,
 .readmore .btn:hover {
-  background-color: var(--btnbgh);
   color: var(--btncolorh);
+  background-color: var(--btnbgh);
   border-color: var(--btnbgh);
 }
 .btn-secondary {
@@ -39,36 +39,36 @@ a.btn {
   border: 1px solid var(--info);
 }
 .btn-info:hover {
+  color: #fff;
   background-color: var(--infoh);
   border-color: var(--info);
-  color: #fff;
 }
 .btn-success {
   background-color: var(--success);
   border: 1px solid var(--success);
 }
 .btn-success:hover {
+  color: #fff;
   background-color: var(--successh);
   border-color: var(--successh);
-  color: #fff;
 }
 .btn-danger {
   background-color: var(--danger);
   border: 1px solid var(--danger);
 }
 .btn-danger:hover {
+  color: #fff;
   background-color: var(--dangerh);
   border-color: var(--dangerh);
-  color: #fff;
 }
 .btn-warning {
   background-color: var(--warning);
   border: 1px solid var(--warning);
 }
 .btn-warning:hover {
+  color: #fff;
   background-color: var(--warningh);
   border-color: var(--warningh);
-  color: #fff;
 }
 .btn-toolbar {
   display: flex;

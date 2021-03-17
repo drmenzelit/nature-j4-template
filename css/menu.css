@@ -1,7 +1,7 @@
 .nav-item a,
 .nav-item span {
-  margin: 0 var(--s0);
   display: inline-block;
+  margin: 0 var(--s0);
 }
 .nav-item.active > a {
   color: var(--linkcolorh);

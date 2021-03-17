@@ -1,8 +1,8 @@
 header {
-  background-color: var(--headerbg);
-  color: var(--headercolor);
   padding: var(--s2) var(--s2);
   font-size: 1.3rem;
+  color: var(--headercolor);
+  background-color: var(--headerbg);
 }
 .header__wrapper {
   display: flex;
@@ -19,7 +19,7 @@ header a {
 }
 header a:hover,
 header .active > a,
-header .nav-item.active > a  {
+header .nav-item.active > a {
   color: var(--headercolor);
   text-decoration: underline;
   text-decoration-thickness: .125em;
@@ -44,16 +44,16 @@ header .nav-item.active > a  {
 
 @media (max-width: 799px) {
   .nav__toggle {
+    position: absolute;
+    top: 1.2rem;
+    right: 4rem;
     display: block;
     appearance: none;
-    position: absolute;
-    right: 4rem;
-    top: 1.2rem;
-    background: transparent;
-    border: 0;
     padding: var(--s0);
     line-height: 1;
     color: var(--headercolor);
+    background: transparent;
+    border: 0;
   }
 }
 
@@ -68,19 +68,19 @@ header .nav-item.active > a  {
     right: 0;
     left: 0;
     z-index: -1;
-    background-color: var(--headerbg);
     visibility: hidden;
+    background-color: var(--headerbg);
     opacity: 0;
+    transition: transform .3s ease-out, opacity .3s ease-out;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   }
   .navbar__with-burger .mod-menu.active {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--s1);
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    padding: var(--s1);
-    flex-direction: column;
-    align-items: flex-start;
   }
   .navbar-top .mod-menu {
     margin-top: 0;
@@ -95,11 +95,11 @@ header .nav-item.active > a  {
 .search__toggle {
   appearance: none;
   order: 1;
-  background: transparent;
-  color: var(--headercolor);
-  border: 0;
   padding: var(--s0);
   line-height: 1;
+  color: var(--headercolor);
+  background: transparent;
+  border: 0;
 }
 .search__toggle svg {
   fill: var(--headercolor);
@@ -113,18 +113,18 @@ header .nav-item.active > a  {
 @media (max-width: 799px) {
   .search__toggle {
     position: absolute;
-    right: 1.5rem;
     top: 1.5rem;
+    right: 1.5rem;
   }
 }
 
 .container-search {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 100%;
-  background-color: #fff;
+  right: 0;
+  left: 0;
   display: none;
+  background-color: #fff;
 }
 .container-search input {
   width: 100%;

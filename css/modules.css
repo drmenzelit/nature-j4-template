@@ -34,20 +34,20 @@
 .mod-login input {
   width: 300px;
 }
-.mod-login input[type='checkbox'],
-.mod-login input[type='radio'] {
+.mod-login input[type="checkbox"],
+.mod-login input[type="radio"] {
   width: auto;
 }
 .mod-tagspopular ul {
-  list-style: none;
-  padding-left: 0;
   display: flex;
+  padding-left: 0;
+  list-style: none;
 }
 .mod-tagspopular ul li {
   margin-right: .5rem;
 }
 .tagspopular .tag-count {
   padding: .125rem .65rem;
-  background-color: var(--info);
   color: #000;
+  background-color: var(--info);
 }

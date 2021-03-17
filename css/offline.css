@@ -14,17 +14,17 @@
   width: 100%;
   max-width: 30em;
   margin: 60px auto;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .05);
 }
 
 .header {
   position: relative;
   padding: 1em 2em;
   margin: 0;
-  color: white;
+  color: #fff;
   text-align: center;
   background-color: var(--headerbg);
   border-radius: 5px 5px 0 0;
@@ -62,5 +62,5 @@ input[type=password] {
 }
 
 input {
-  margin: 0.5em 0 1em;
+  margin: .5em 0 1em;
 }

@@ -158,7 +158,8 @@
 				<field
 					name="wrapperwidth"
 					type="number"
-					class="form-select span-1-inline stack"
+					class="form-select"
+					parentclass="span-1-inline stack"
 					default="1200"
 					label="TPL_NATURE_WRAPPER_WIDTH"
 					description=""
@@ -167,7 +168,8 @@
 				<field
 					name="bannerheight"
 					type="number"
-					class="form-select span-1-inline stack"
+					class="form-select"
+					parentclass="span-1-inline stack"
 					default="50"
 					label="TPL_NATURE_BANNER_HEIGHT"
 					description=""
@@ -176,7 +178,8 @@
 				<field
 					name="h1"
 					type="number"
-					class="form-select span-1-inline stack"
+					class="form-select"
+					parentclass="span-1-inline stack"
 					default="4"
 					label="TPL_NATURE_H1_SIZE"
 					description=""
@@ -185,7 +188,8 @@
 				<field
 					name="h2"
 					type="number"
-					class="form-select span-1-inline stack"
+					class="form-select"
+					parentclass="span-1-inline stack"
 					default="2.8"
 					label="TPL_NATURE_H2_SIZE"
 					description=""
@@ -194,7 +198,8 @@
 				<field
 					name="h3"
 					type="number"
-					class="form-select span-1-inline stack"
+					class="form-select"
+					parentclass="span-1-inline stack"
 					default="2.3"
 					label="TPL_NATURE_H3_SIZE"
 					description=""

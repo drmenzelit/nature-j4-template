@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.nature
+ *
+ * @copyright   (C) 2021 Dr. Menzel IT. <https://www.dr-menzel-it.de>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 defined('_JEXEC') or die;
 
@@ -31,7 +38,7 @@ $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 // Template path
 $templatePath = 'templates/' . $this->template;
 
-// Icons 
+// Icons
 $search = '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg>';
@@ -140,6 +147,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<div class="header__end">
 				<?php if ($this->countModules('menu', true)) : ?>
 					<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
+					
 					<?php if ($this->params->get('burgerMenu') == 1): ?>
 						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="menu"><?php echo $open; ?></button>
 					<?php endif; ?>
@@ -190,6 +198,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<?php endif; ?>
 			<jdoc:include type="message" />
 			<div class="main-content  <?php echo $hasClass; ?>">
+					
 					<?php if (($this->params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
 						<div class="container-sidebar sidebar--left">
 							<jdoc:include type="modules" name="sidebar-left" style="html5" />

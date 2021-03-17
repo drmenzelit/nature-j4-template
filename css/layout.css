@@ -23,10 +23,10 @@
 }
 .banner-overlay {
   height: var(--bannerheight);
-  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center,center;
+  background-size: cover;
 }
 .banner-overlay .overlay {
   display: flex;
@@ -38,20 +38,20 @@
   background-color: var(--banneroverlay);
 }
 .container-top-a {
-  background-color: var(--topabg);
   padding: var(--s4) var(--s2);
+  background-color: var(--topabg);
 }
 .container-top-b {
-  background-color: var(--topbbg);
   padding: var(--s4) var(--s2);
+  background-color: var(--topbbg);
 }
 .container-bottom-a {
-  background-color: var(--bottomabg);
   padding: var(--s4) var(--s2);
+  background-color: var(--bottomabg);
 }
 .container-bottom-b {
-  background-color: var(--bottombbg);
   padding: var(--s4) var(--s2);
+  background-color: var(--bottombbg);
 }
 
 @media (min-width: 800px) {
@@ -129,9 +129,9 @@ main {
   position: sticky;
   top: calc(100vh - 5rem);
   padding: var(--s1);
+  text-decoration: none;
   pointer-events: all;
   transition: all .2s ease-in;
-  text-decoration: none;
 }
 .arrow-up {
   font-size: 1.8rem;

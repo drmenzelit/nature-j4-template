@@ -43,8 +43,8 @@
 }
 .metismenu.mod-menu .metismenu-item > span,
 .metismenu.mod-menu .metismenu-item > a {
-  margin: 0 var(--s0);
   padding: 5px 0;
+  margin: 0 var(--s0);
 }
 .metismenu.mod-menu .metismenu-item::after {
   content: none;
@@ -143,7 +143,7 @@
 .sidebar-right .metismenu .mm-collapse,
 .sidebar-left .metismenu .mm-collapse {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, .03);
 }
 .sidebar-right .metismenu li.parent > ul,
 .sidebar-left .metismenu li.parent > ul {

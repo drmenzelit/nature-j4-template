@@ -10,9 +10,9 @@
           margin-inline-end: 8px;
 }
 .js-stools-container-bar .btn-toolbar .js-stools-btn-clear {
+  color: #fff;
   background-color: var(--grey1);
   border-color: var(--grey1);
-  color: #fff;
 }
 .js-stools-container-bar .ordering-select {
   display: flex;
@@ -28,7 +28,7 @@
   grid-gap: 8px;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   padding: 10px;
-  background-color: white;
+  background-color: #fff;
 }
 .js-stools-container-filters > * {
   margin: 4px 0;
