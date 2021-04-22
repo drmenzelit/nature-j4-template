@@ -45,7 +45,7 @@ header .nav-item.active > a {
 @media (max-width: 799px) {
   .nav__toggle {
     position: absolute;
-    top: 1.2rem;
+    top: 4.2rem;
     right: 4rem;
     display: block;
     appearance: none;
@@ -54,6 +54,11 @@ header .nav-item.active > a {
     color: var(--headercolor);
     background: transparent;
     border: 0;
+  }
+  .search__toggle {
+    position: absolute;
+    top: 4.5rem;
+    right: 1.5rem;
   }
 }
 
@@ -75,11 +80,17 @@ header .nav-item.active > a {
     transform: translateY(-100%);
   }
   .navbar__with-burger .mod-menu.active {
+    top: -100px;
+    z-index: 1;
     flex-direction: column;
     align-items: flex-start;
     padding: var(--s1);
     visibility: visible;
     opacity: 1;
+    transform: translateY(100%);
+  }
+  .position-sticky .navbar__with-burger .mod-menu.active {
+    top: 100%;
     transform: translateY(0);
   }
   .navbar-top .mod-menu {
@@ -110,21 +121,17 @@ header .nav-item.active > a {
     margin-left: var(--s0);
   }
 }
-@media (max-width: 799px) {
-  .search__toggle {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-  }
-}
 
 .container-search {
   position: absolute;
-  top: 100%;
+  top: 0;
   right: 0;
   left: 0;
   display: none;
   background-color: #fff;
+}
+.position-sticky .container-search {
+  top: 100%;
 }
 .container-search input {
   width: 100%;

@@ -38,7 +38,10 @@ Joomla = window.Joomla || {};
 
 		let navToggle = document.querySelector(".nav__toggle");
 		let navWrapper = document.querySelector(".navbar__with-burger .mod-menu");
-		
+
+    let searchToggle = document.querySelector(".search__toggle");
+		let searchForm = document.querySelector(".container-search");
+
 		if (navToggle) {
 			navToggle.addEventListener("click", function () {
 			if (navWrapper.classList.contains("active")) {
@@ -49,30 +52,32 @@ Joomla = window.Joomla || {};
 				navWrapper.classList.add("active");
 				this.setAttribute("aria-label", "close menu");
 				this.setAttribute("aria-expanded", "true");
-				searchForm.classList.remove("active");
-				searchToggle.classList.remove("active");
+        if (searchToggle) {
+          searchForm.classList.remove("active");
+          searchToggle.classList.remove("active");
+        }
 			}
 			});
 		}
-		let searchToggle = document.querySelector(".search__toggle");
-		let searchForm = document.querySelector(".container-search");
-		
-		searchToggle.addEventListener("click", showSearch);
-		
-		function showSearch() {
-		  searchForm.classList.toggle("active");
-		  searchToggle.classList.toggle("active");
-		  if (navToggle) {
-			navToggle.setAttribute("aria-expanded", "false");
-		  	navToggle.setAttribute("aria-label", "menu");
-		  	navWrapper.classList.remove("active");
-		  }
-		  if (searchToggle.classList.contains("active")) {
-			searchToggle.setAttribute("aria-label", "Close search");
-		  } else {
-			searchToggle.setAttribute("aria-label", "Open search");
-		  }
-		}
+
+    if (searchToggle) {
+      searchToggle.addEventListener("click", showSearch);
+
+      function showSearch() {
+        searchForm.classList.toggle("active");
+        searchToggle.classList.toggle("active");
+        if (navToggle) {
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "menu");
+          navWrapper.classList.remove("active");
+        }
+        if (searchToggle.classList.contains("active")) {
+          searchToggle.setAttribute("aria-label", "Close search");
+        } else {
+          searchToggle.setAttribute("aria-label", "Open search");
+        }
+      }
+    }
 	});
 
 	/**

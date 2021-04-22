@@ -334,12 +334,12 @@ thead {
 .tbody-icon .icon-times {
   color: #a51f18;
 }
-/* Position */
+/* Position
 [class^="mod-"],
 .moduletable,
 nav {
   position: relative;
-}
+} */
 .float-end {
   text-align: end;
 }
