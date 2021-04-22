@@ -225,9 +225,38 @@ iframe {
   right: 5em;
   z-index: 1070;
   display: none;
-  max-width: 100%;
+  width: max-content;
   padding: .5em;
   margin: .5em;
+}
+:focus + [role="tooltip"],
+:hover + [role="tooltip"] {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: block;
+  color: #000;
+  background-color: #fff;
+}
+.btn.jmodedit {
+  z-index: 900;
+  padding: var(--s0);
+}
+.small {
+  font-size: .9rem;
+}
+.jmenuedit {
+  margin: 0 !important;
+}
+.jmenuedit > span {
+  margin-right: 0;
+}
+#jform_params_base_select {
+  display: flex;
+  align-items: center;
+}
+#jform_params_base_select > .icon-file {
+  margin-right: var(--s0);
 }
 .accordion-header {
   font-size: 1.3rem;
@@ -304,6 +333,15 @@ thead {
 .tbody-icon .icon-delete,
 .tbody-icon .icon-times {
   color: #a51f18;
+}
+/* Position */
+[class^="mod-"],
+.moduletable,
+nav {
+  position: relative;
+}
+.float-end {
+  text-align: end;
 }
 /* Error */
 body.error-site {

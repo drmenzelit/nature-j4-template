@@ -17,14 +17,19 @@
 .mod-menu .mod-menu__sub {
   padding-left: var(--s1);
 }
-
 .nav-item.divider:not(.parent) {
-  width: 1px;
+  height: 1px;
   padding: 0;
   margin: .25em;
   overflow: hidden;
+  border-bottom: 1px solid #ced4da;
+}
+.navbar-top .mod-menu .nav-item.divider:not(.parent),
+.menu-horizontal .nav-item.divider:not(.parent) {
+  width: 1px;
   border-right: 1px solid #ced4da;
 }
+
 @media (max-width: 800px) {
   .navbar__with-burger .nav-item.divider:not(.parent) {
     width: auto;

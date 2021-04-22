@@ -158,8 +158,6 @@
 				<field
 					name="wrapperwidth"
 					type="number"
-					class="form-select"
-					parentclass="span-1-inline stack"
 					default="1200"
 					label="TPL_NATURE_WRAPPER_WIDTH"
 					description=""
@@ -168,8 +166,6 @@
 				<field
 					name="bannerheight"
 					type="number"
-					class="form-select"
-					parentclass="span-1-inline stack"
 					default="50"
 					label="TPL_NATURE_BANNER_HEIGHT"
 					description=""
@@ -178,8 +174,6 @@
 				<field
 					name="h1"
 					type="number"
-					class="form-select"
-					parentclass="span-1-inline stack"
 					default="4"
 					label="TPL_NATURE_H1_SIZE"
 					description=""
@@ -188,8 +182,6 @@
 				<field
 					name="h2"
 					type="number"
-					class="form-select"
-					parentclass="span-1-inline stack"
 					default="2.8"
 					label="TPL_NATURE_H2_SIZE"
 					description=""
@@ -198,8 +190,6 @@
 				<field
 					name="h3"
 					type="number"
-					class="form-select"
-					parentclass="span-1-inline stack"
 					default="2.3"
 					label="TPL_NATURE_H3_SIZE"
 					description=""
@@ -210,6 +200,7 @@
 				<field
 					name="headerbg"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(65, 89, 154, 1)"
 					format="rgba"
 					label="TPL_NATURE_HEADER_BACKGROUND_COLOR_LABEL"
@@ -219,6 +210,7 @@
 				<field
 					name="headercolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(255, 255, 255, 1)"
 					format="rgba"
 					label="TPL_NATURE_HEADER_TEXT_COLOR_LABEL"
@@ -228,6 +220,7 @@
 				<field
 					name="bodybg"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(255, 255, 255, 1)"
 					format="rgba"
 					label="TPL_NATURE_BODY_BACKGROUND_COLOR_LABEL"
@@ -237,6 +230,7 @@
 				<field
 					name="bodycolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(0, 0, 0, 1)"
 					format="rgba"
 					label="TPL_NATURE_BODY_TEXT_COLOR_LABEL"
@@ -246,6 +240,7 @@
 				<field
 					name="linkcolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(65, 89, 154, 1)"
 					format="rgba"
 					label="TPL_NATURE_LINK_COLOR_LABEL"
@@ -255,6 +250,7 @@
 				<field
 					name="linkcolorh"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(24, 33, 58, 1)"
 					format="rgba"
 					label="TPL_NATURE_LINK_HOVER_COLOR_LABEL"
@@ -264,6 +260,7 @@
 				<field
 					name="btnbg"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(253, 161, 33, 1)"
 					format="rgba"
 					label="TPL_NATURE_BUTTON_BACKGROUND_COLOR_LABEL"
@@ -273,6 +270,7 @@
 				<field
 					name="btnbgh"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(182, 107, 2, 1)"
 					format="rgba"
 					label="TPL_NATURE_BUTTON_BACKGROUND_HOVER_COLOR_LABEL"
@@ -282,6 +280,7 @@
 				<field
 					name="btncolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(0, 0, 0, 1)"
 					format="rgba"
 					label="TPL_NATURE_BUTTON_COLOR_LABEL"
@@ -291,6 +290,7 @@
 				<field
 					name="btncolorh"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(255, 255, 255, 1)"
 					format="rgba"
 					label="TPL_NATURE_BUTTON_HOVER_COLOR_LABEL"
@@ -300,6 +300,7 @@
 				<field
 					name="bannercolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(255, 255, 255, 1)"
 					format="rgba"
 					label="TPL_NATURE_BANNER_COLOR_LABEL"
@@ -309,6 +310,7 @@
 				<field
 					name="banneroverlay"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(0, 0, 0, .5)"
 					format="rgba"
 					label="TPL_NATURE_BANNER_OVERLAY_LABEL"
@@ -318,6 +320,7 @@
 				<field
 					name="footerbg"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(46, 34, 12, 1)"
 					format="rgba"
 					label="TPL_NATURE_FOOTER_BACKGROUND_COLOR_LABEL"
@@ -327,6 +330,7 @@
 				<field
 					name="footercolor"
 					type="color"
+					parentclass="span-3-inline stack"
 					default="rgba(255, 255, 255, 1)"
 					format="rgba"
 					label="TPL_NATURE_FOOTER_TEXT_COLOR_LABEL"
@@ -338,6 +342,7 @@
 				<field
 					name="topa"
 					type="radio"
+					parentclass="span-2-inline stack"
 					label="TPL_NATURE_TOPA_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -350,6 +355,7 @@
 				<field
 					name="topacols"
 					type="integer"
+					parentclass="span-2-inline stack"
 					default="1"
 					label="TPL_NATURE_TOPA_COLS_LABEL"
 					description=""
@@ -361,6 +367,7 @@
 				<field
 					name="topabg"
 					type="color"
+					parentclass="span-2-inline stack"
 					default="rgba(255, 255, 255, 0)"
 					format="rgba"
 					label="TPL_NATURE_TOPA_BACKGROUND_COLOR_LABEL"
@@ -370,6 +377,7 @@
 				<field
 					name="topb"
 					type="radio"
+					parentclass="span-2-inline stack"
 					label="TPL_NATURE_TOPB_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -382,6 +390,7 @@
 				<field
 					name="topbcols"
 					type="integer"
+					parentclass="span-2-inline stack"
 					default="1"
 					label="TPL_NATURE_TOPB_COLS_LABEL"
 					description=""
@@ -393,6 +402,7 @@
 				<field
 					name="topbbg"
 					type="color"
+					parentclass="span-2-inline stack"
 					default="rgba(255, 255, 255, 0)"
 					format="rgba"
 					label="TPL_NATURE_TOPB_BACKGROUND_COLOR_LABEL"
@@ -402,6 +412,7 @@
 				<field
 					name="bottoma"
 					type="radio"
+					parentclass="span-2-inline stack"
 					label="TPL_NATURE_BOTTOMA_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -414,6 +425,7 @@
 				<field
 					name="bottomacols"
 					type="integer"
+					parentclass="span-2-inline stack"
 					default="1"
 					label="TPL_NATURE_BOTTOMA_COLS_LABEL"
 					description=""
@@ -425,6 +437,7 @@
 				<field
 					name="bottomabg"
 					type="color"
+					parentclass="span-2-inline stack"
 					default="rgba(255, 255, 255, 0)"
 					format="rgba"
 					label="TPL_NATURE_BOTTOMA_BACKGROUND_COLOR_LABEL"
@@ -434,6 +447,7 @@
 				<field
 					name="bottomb"
 					type="radio"
+					parentclass="span-2-inline stack"
 					label="TPL_NATURE_BOTTOMB_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -446,6 +460,7 @@
 				<field
 					name="bottombcols"
 					type="integer"
+					parentclass="span-2-inline stack"
 					default="1"
 					label="TPL_NATURE_BOTTOMB_COLS_LABEL"
 					description=""
@@ -457,6 +472,7 @@
 				<field
 					name="bottombbg"
 					type="color"
+					parentclass="span-2-inline stack"
 					default="rgba(255, 255, 255, 0)"
 					format="rgba"
 					label="TPL_NATURE_BOTTOMB_BACKGROUND_COLOR_LABEL"
