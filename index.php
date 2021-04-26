@@ -147,7 +147,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<div class="header__end">
 				<?php if ($this->countModules('menu', true)) : ?>
 					<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
-					
+
 					<?php if ($this->params->get('burgerMenu') == 1): ?>
 						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="menu"><?php echo $open; ?></button>
 					<?php endif; ?>
@@ -198,7 +198,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<?php endif; ?>
 			<jdoc:include type="message" />
 			<div class="main-content  <?php echo $hasClass; ?>">
-					
+
 					<?php if (($this->params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
 						<div class="container-sidebar sidebar--left">
 							<jdoc:include type="modules" name="sidebar-left" style="html5" />
