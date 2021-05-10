@@ -143,14 +143,22 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<header class="header <?php echo $stickyHeader; ?>">
 		<a href="#main" class="skip-link">Skip to main content</a>
 		<div class="wrapper header__wrapper">
-			<div class="header__start navbar-brand">
-				<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
-					<?php echo $logo; ?>
-				</a>
-				<?php if ($this->params->get('siteDescription')) : ?>
-					<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+			<?php if ($this->params->get('logoPosition')) : ?>
+				<?php if ($this->countModules('logo', true)) : ?>
+					<div class="header__start navbar-brand">
+						<jdoc:include type="modules" name="logo" />
+					</div>
 				<?php endif; ?>
-			</div>
+			<?php else : ?>
+				<div class="header__start navbar-brand">
+					<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+						<?php echo $logo; ?>
+					</a>
+					<?php if ($this->params->get('siteDescription')) : ?>
+						<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
 			<?php if (($this->countModules('menu', true)) || ($this->countModules('search', true))) : ?>
 			<div class="header__end">
 				<?php if ($this->countModules('menu', true)) : ?>
@@ -159,7 +167,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 					<?php if ($this->params->get('burgerMenu') == 1): ?>
 						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="menu"><?php echo $open; ?></button>
 					<?php endif; ?>
-						<jdoc:include type="modules" name="menu" style="none" />
+						<jdoc:include type="modules" name="menu" />
 					</nav>
 				<?php endif; ?>
 
@@ -167,7 +175,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 				<div class="search">
 					<button class="search__toggle" aria-label="Open search"><?php echo $search; ?></button>
 					<div class="container-search">
-						<jdoc:include type="modules" name="search" style="none" />
+						<jdoc:include type="modules" name="search" />
 					</div>
 				</div>
 				<?php endif; ?>
@@ -178,14 +186,14 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 
 	<?php if ($this->countModules('banner', true)) : ?>
 		<div class="container-banner">
-			<jdoc:include type="modules" name="banner" style="none" />
+			<jdoc:include type="modules" name="banner" />
 		</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('top-a', true)) : ?>
 	<div class="container-top-a">
 		<div class="grid <?php echo $this->params->get('topa') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topacols'); ?>">
-			<jdoc:include type="modules" name="top-a" style="none" />
+			<jdoc:include type="modules" name="top-a" />
 		</div>
 	</div>
 	<?php endif; ?>
@@ -193,18 +201,21 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<?php if ($this->countModules('top-b', true)) : ?>
 	<div class="container-top-b">
 		<div class="grid <?php echo $this->params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topbcols'); ?>">
-			<jdoc:include type="modules" name="top-b" style="none" />
+			<jdoc:include type="modules" name="top-b" />
 		</div>
 	</div>
 	<?php endif; ?>
 
 	<main id="main" tabindex="-1">
 		<div class="wrapper">
-			<jdoc:include type="modules" name="breadcrumbs" style="none" />
+			<jdoc:include type="modules" name="breadcrumbs" />
+
 			<?php if ($this->countModules('main-top', true)) : ?>
-				<jdoc:include type="modules" name="main-top" style="none" />
+				<jdoc:include type="modules" name="main-top" />
 			<?php endif; ?>
+
 			<jdoc:include type="message" />
+
 			<div class="main-content  <?php echo $hasClass; ?>">
 
 					<?php if (($this->params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
@@ -220,10 +231,13 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 							<jdoc:include type="modules" name="sidebar-right" style="html5" />
 						</div>
 					<?php endif; ?>
+
 			</div>
+
 			<?php if ($this->countModules('main-bottom', true)) : ?>
-				<jdoc:include type="modules" name="main-bottom" style="none" />
+				<jdoc:include type="modules" name="main-bottom" />
 			<?php endif; ?>
+
 		</div>
 	</main>
 
@@ -238,7 +252,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<?php if ($this->countModules('bottom-b', true)) : ?>
 	<div class="container-bottom-b">
 		<div class="grid <?php echo $this->params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottombcols'); ?>">
-			<jdoc:include type="modules" name="bottom-b" style="none" />
+			<jdoc:include type="modules" name="bottom-b" />
 		</div>
 	</div>
 	<?php endif; ?>
@@ -246,7 +260,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<?php if ($this->countModules('footer', true)) : ?>
 	<footer class="container-footer">
 		<div class="wrapper container-footer_wrapper">
-			<jdoc:include type="modules" name="footer" style="none" />
+			<jdoc:include type="modules" name="footer" />
 		</div>
 	</footer>
 	<?php endif; ?>

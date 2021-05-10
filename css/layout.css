@@ -51,9 +51,6 @@ header .nav-item.active > a {
 
 @media (max-width: 799px) {
   .nav__toggle {
-    position: absolute;
-    top: 4.2rem;
-    right: 4rem;
     display: block;
     appearance: none;
     padding: var(--s0);
@@ -61,11 +58,6 @@ header .nav-item.active > a {
     color: var(--headercolor);
     background: transparent;
     border: 0;
-  }
-  .search__toggle {
-    position: absolute;
-    top: 4.5rem;
-    right: 1.5rem;
   }
 }
 

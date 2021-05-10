@@ -130,6 +130,12 @@ button {
   background-color: #eaedf0;
   border: 1px solid #ced4da;
 }
+input[type="checkbox"] {
+  margin-inline-start: 0;
+  margin-inline-end: .5rem;
+  margin-block: 0;
+}
+.form-check,
 .form-check-label {
   display: flex;
   align-items: center;
@@ -151,7 +157,7 @@ button {
 .form-control {
   display: block;
   width: 100%;
-  padding: var(--s0) var(--s1);
+  padding: var(--s1);
 }
 .control-group {
   margin: var(--s1) 0;
@@ -457,4 +463,15 @@ body.error-site {
 }
 body.error-site footer {
   margin-top: auto;
+}
+
+/* Icons */
+.icon-eye {
+  display: inline-block;
+  content: "";
+  vertical-align: -.125em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' class='bi bi-eye' viewBox='0 0 16 16'%3E%3Cpath d='M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z'/%3E%3Cpath d='M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z'/%3E%3C/svg%3E");  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  width: 1rem;
+  height: 1rem;
 }
