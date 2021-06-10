@@ -60,6 +60,11 @@ if ($this->params->get('fontawesome') == 1)
 	$wa->useStyle('fontawesome');
 	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 }
+else
+{
+	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
+	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'icons')->getUri(), ['as' => 'style']);
+}
 
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $this->params->get('useFontScheme', false);
