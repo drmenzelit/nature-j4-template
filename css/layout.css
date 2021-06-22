@@ -36,6 +36,7 @@ header .nav-item.active > a {
   font-size: 3rem;
 }
 .navbar-brand a {
+  display: block;
   text-decoration: none;
 }
 .header__end {

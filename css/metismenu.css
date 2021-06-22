@@ -131,15 +131,10 @@
   -webkit-transform: rotateX(-180deg);
           transform: rotateX(-180deg);
 }
-
 .metismenu.mod-menu .mm-toggler[aria-expanded=true]:after {
   -webkit-transform: rotateX(-180deg);
           transform: rotateX(-180deg);
 }
-.metismenu.mod-menu .mm-toggler:focus-visible {
-  outline: 1px dotted var(--headercolor);
-}
-
 .sidebar-right .metismenu .mm-collapse,
 .sidebar-left .metismenu .mm-collapse {
   position: relative;

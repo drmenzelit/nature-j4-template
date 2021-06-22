@@ -176,8 +176,8 @@ a:hover {
 }
 :focus,
 :focus-visible {
-  outline: 1px dotted currentColor;
-  outline-offset: .2rem;
+  outline: 3px dotted currentColor;
+  outline-offset: .1rem;
 }
 main:focus {
   outline: none;
@@ -258,6 +258,10 @@ figure img {
 iframe {
   border: 0;
 }
+[class^="mod-"],
+.moduletable {
+  position: relative;
+}
 [role="tooltip"]:not(.show) {
   right: 5em;
   z-index: 1070;
@@ -266,11 +270,11 @@ iframe {
   padding: .5em;
   margin: .5em;
 }
-:focus + [role="tooltip"],
-:hover + [role="tooltip"] {
+:hover + [role="tooltip"],
+:focus + [role="tooltip"] {
   position: absolute;
-  top: 50px;
-  left: 0;
+  top: 1rem;
+  left: 1rem;
   display: block;
   color: #000;
   background-color: #fff;
@@ -371,12 +375,6 @@ thead {
 .tbody-icon .icon-times {
   color: #a51f18;
 }
-/* Position
-[class^="mod-"],
-.moduletable,
-nav {
-  position: relative;
-} */
 .float-end {
   text-align: end;
 }
