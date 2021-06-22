@@ -82,14 +82,6 @@ $wa->usePreset('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user');
 
-// Preload css
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.reset')->getUri(), ['as' => 'style']);
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.layout')->getUri(), ['as' => 'style']);
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.menu')->getUri(), ['as' => 'style']);
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.content')->getUri(), ['as' => 'style']);
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.modal')->getUri(), ['as' => 'style']);
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.print')->getUri(), ['as' => 'style']);
-
 // Logo file or site title param
 if ($this->params->get('logoFile'))
 {

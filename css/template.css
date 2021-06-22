@@ -17,14 +17,18 @@
 */
 
 :root {
-  --success: hsl(148, 70%, 64%);
-  --info: hsl(197, 70%, 53%);
-  --warning: hsl(31, 70%, 53%);
   --danger: hsl(350, 70%, 53%);
-  --successh: hsl(148, 70%, 44%);
-  --infoh: hsl(197, 70%, 40%);
-  --warningh: hsl(31, 70%, 44%);
   --dangerh: hsl(350, 70%, 40%);
+  --dangerl: hsl(350, 70%, 80%);
+  --info: hsl(197, 70%, 53%);
+  --infoh: hsl(197, 70%, 40%);
+  --infol: hsl(197, 70%, 80%);
+  --success: hsl(148, 70%, 64%);
+  --successh: hsl(148, 70%, 44%);
+  --successl: hsl(148, 70%, 84%);
+  --warning: hsl(31, 70%, 53%);
+  --warningh: hsl(31, 70%, 44%);
+  --warningl: hsl(31, 70%, 84%);
   --grey1: hsl(0, 0%, 44%);
   --grey2: hsl(0, 0%, 34%);
   --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -147,7 +151,7 @@ input[type="checkbox"] {
   max-width: 100%;
   padding-right: 3rem;
   cursor: pointer;
-  background: url("../images/select-bg.svg") no-repeat 100%/116rem;
+  background: url("../images/select-bg.svg") no-repeat 100%/120rem;
   background-color: #eaedf0;
   border: 1px solid #ced4da;
   -webkit-appearance: none;
@@ -157,7 +161,7 @@ input[type="checkbox"] {
 .form-control {
   display: block;
   width: 100%;
-  padding: var(--s1);
+  padding: var(--s0) var(--s1);
 }
 .control-group {
   margin: var(--s1) 0;
@@ -380,7 +384,7 @@ nav {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: var(--s1);
+  padding: var(--s0) var(--s1);
   cursor: pointer;
 }
 a.btn {
@@ -455,15 +459,17 @@ a.btn {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.meter {
+meter {
   width: 100%;
+}
+.collapse:not(.show) {
+  display: none;
 }
 /* Alerts */
 .alert {
   position: relative;
   padding: var(--s1);
   margin-bottom: var(--s1);
-  background-color: #f4f4f4;
   border: 1px solid transparent;
 }
 .alert-heading {
@@ -484,6 +490,7 @@ a.btn {
 }
 .alert-primary {
   color: var(--bodycolor);
+  background-color: #f4f4f4;
   border-color: var(--grey1);
 }
 .alert-primary .alert-link {
@@ -491,35 +498,40 @@ a.btn {
 }
 .alert-secondary {
   color: var(--grey2);
+  background-color: #f4f4f4;
   border-color: var(--grey1);
 }
 .alert-secondary .alert-link {
   color: var(--grey2);
 }
 .alert-success {
-  color: var(--success);
-  border-color: var(--success);
+  color: var(--bodycolor);
+  background-color: var(--successl);
+  border-color: var(--successl);
 }
 .alert-success .alert-link {
   color: var(--success);
 }
 .alert-info {
-  color: var(--info);
-  border-color: var(--info);
+  color: var(--bodycolor);
+  background-color: var(--infol);
+  border-color: var(--infol);
 }
 .alert-info .alert-link {
   color: var(--info);
 }
 .alert-warning {
-  color: var(--warning);
-  border-color: var(--warning);
+  color: var(--bodycolor);
+  background-color: var(--warningl);
+  border-color: var(--warningl);
 }
 .alert-warning .alert-link {
   color: var(--warning);
 }
 .alert-danger {
-  color: var(--danger);
-  border-color: var(--danger);
+  color: var(--bodycolor);
+  background-color: var(--dangerl);
+  border-color: var(--dangerl);
 }
 .alert-danger .alert-link {
   color: var(--danger);

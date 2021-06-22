@@ -115,7 +115,11 @@ header .nav-item.active > a {
     margin-left: var(--s0);
   }
 }
-
+#finder-filter-select-dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 /* Containers */
 .container-search {
   position: absolute;
@@ -278,7 +282,6 @@ main {
 .arrow-up {
   font-size: 1.8rem;
 }
-
 /* Footer */
 footer {
   padding: var(--s2) var(--s2);
@@ -288,6 +291,10 @@ footer {
 }
 footer a {
   color: var(--footercolor);
+}
+footer a:hover,
+footer .nav-item.active a {
+  color: var(--btnbg);
 }
 .container-footer_wrapper {
   display: flex;
