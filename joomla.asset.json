@@ -12,11 +12,7 @@
       "uri": "template.css",
       "dependencies": [
         "template.reset",
-        "template.layout",
-        "template.menu",
-        "template.content",
-        "template.modal",
-        "template.print"
+        "template.layout"
       ]
     },
     {
@@ -30,30 +26,6 @@
       "description": "CSS for layout.",
       "type": "style",
       "uri": "layout.css"
-    },
-    {
-      "name": "template.menu",
-      "description": "CSS for menu.",
-      "type": "style",
-      "uri": "menu.css"
-    },
-    {
-      "name": "template.content",
-      "description": "CSS for content.",
-      "type": "style",
-      "uri": "content.css"
-    },
-    {
-      "name": "template.modal",
-      "description": "CSS for modal.",
-      "type": "style",
-      "uri": "modal.css"
-    },
-    {
-      "name": "template.print",
-      "description": "CSS for print.",
-      "type": "style",
-      "uri": "print.css"
     },
     {
       "name": "template.offline",

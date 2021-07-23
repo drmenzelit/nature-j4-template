@@ -189,6 +189,14 @@
 				/>
 
 				<field
+					name="bodysize"
+					type="number"
+					default="1.2"
+					label="TPL_NATURE_BODY_SIZE"
+					description=""
+				/>
+
+				<field
 					name="h1"
 					type="number"
 					default="4"

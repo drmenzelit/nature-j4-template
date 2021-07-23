@@ -27,6 +27,7 @@ $document->addStyleDeclaration('
 	--bottombbg:  ' . $params->get('bottombbg') . ';
 	--topabg:  ' . $params->get('topabg') . ';
 	--topbbg:  ' . $params->get('topbbg') . ';
+	--bodysize: ' . $params->get('bodysize') . 'rem;
 	--h1size: ' . $params->get('h1') . 'rem;
 	--h2size: ' . $params->get('h2') . 'rem;
 	--h3size: ' . $params->get('h3') . 'rem;

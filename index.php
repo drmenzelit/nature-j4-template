@@ -203,10 +203,12 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	</div>
 	<?php endif; ?>
 
+	<?php if ($this->countModules('breadcrumbs', true)) : ?>
+		<jdoc:include type="modules" name="breadcrumbs" />
+	<?php endif; ?>
+
 	<main id="main" tabindex="-1">
 		<div class="wrapper">
-			<jdoc:include type="modules" name="breadcrumbs" />
-
 			<?php if ($this->countModules('main-top', true)) : ?>
 				<jdoc:include type="modules" name="main-top" />
 			<?php endif; ?>
