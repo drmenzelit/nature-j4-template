@@ -179,19 +179,19 @@ header .nav-item.active > a {
   background-color: var(--banneroverlay);
 }
 .container-top-a {
-  padding: var(--s4) var(--s2);
+  padding: var(--s4) 0;
   background-color: var(--topabg);
 }
 .container-top-b {
-  padding: var(--s4) var(--s2);
+  padding: var(--s4) 0;
   background-color: var(--topbbg);
 }
 .container-bottom-a {
-  padding: var(--s4) var(--s2);
+  padding: var(--s4) 0;
   background-color: var(--bottomabg);
 }
 .container-bottom-b {
-  padding: var(--s4) var(--s2);
+  padding: var(--s4) 0;
   background-color: var(--bottombbg);
 }
 @media (min-width: 800px) {
@@ -230,6 +230,24 @@ main {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+/* Dividers */
+.custom-shape-divider {
+  height: 150px;
+}
+.custom-shape-divider svg {
+  width: 100%;
+  height: 100%;
+}
+.custom-shape-divider.top-b svg {
+  fill: var(--topbbg);
+}
+.custom-shape-divider.bottom-a svg {
+  fill: var(--bottomabg);
+}
+.custom-shape-divider.bottom-b svg {
+  fill: var(--bottombbg);
+}
+/* Pagination */
 .pagenavigation .pagination {
   display: flex;
   flex-wrap: wrap;

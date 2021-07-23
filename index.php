@@ -46,6 +46,17 @@ $open = '<svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="34" he
 <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
 </svg>';
 
+// Divider
+$wave = '<svg viewBox="0 0 500 150" preserveAspectRatio="none">
+<path d="M0.00,49.98 C253.38,114.77 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none;"></path>
+</svg>';
+$tiltr = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+<path d="M0,30L500,150L500,150L0,150Z"></path>
+</svg>';
+$tiltl = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserveAspectRatio="none">
+<path d="M0,150L500,30L500,150L0,150Z"></path>
+</svg>';
+
 // Load burgerMenu
 $hasBurger = '';
 
@@ -156,6 +167,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
+
 			<?php if (($this->countModules('menu', true)) || ($this->countModules('search', true))) : ?>
 			<div class="header__end">
 				<?php if ($this->countModules('menu', true)) : ?>
@@ -196,11 +208,26 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<?php endif; ?>
 
 	<?php if ($this->countModules('top-b', true)) : ?>
-	<div class="container-top-b">
-		<div class="grid <?php echo $this->params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topbcols'); ?>">
-			<jdoc:include type="modules" name="top-b" />
+		<?php if ($this->params->get('topbdiv') != 0) : ?>
+		<div class="custom-shape-divider top-b">
+			<?php if ($this->params->get('topbdiv') == 1) : ?>
+				<?php echo $wave; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('topbdiv') == 2) : ?>
+				<?php echo $tiltr; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('topbdiv') == 3) : ?>
+				<?php echo $tiltl; ?>
+			<?php endif; ?>
 		</div>
-	</div>
+		<?php endif; ?>
+		<div class="container-top-b">
+			<div class="grid <?php echo $this->params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topbcols'); ?>">
+				<jdoc:include type="modules" name="top-b" />
+			</div>
+		</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('breadcrumbs', true)) : ?>
@@ -216,7 +243,6 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<jdoc:include type="message" />
 
 			<div class="main-content  <?php echo $hasClass; ?>">
-
 					<?php if (($this->params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
 						<div class="container-sidebar sidebar--left">
 							<jdoc:include type="modules" name="sidebar-left" style="html5" />
@@ -241,19 +267,49 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	</main>
 
 	<?php if ($this->countModules('bottom-a', true)) : ?>
-	<div class="container-bottom-a">
-		<div class="grid <?php echo $this->params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottomacols'); ?>">
-			<jdoc:include type="modules" name="bottom-a" style="html5" />
+		<?php if ($this->params->get('bottomadiv') != 0) : ?>
+		<div class="custom-shape-divider bottom-a">
+			<?php if ($this->params->get('bottomadiv') == 1) : ?>
+				<?php echo $wave; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('bottomadiv') == 2) : ?>
+				<?php echo $tiltr; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('bottomadiv') == 3) : ?>
+				<?php echo $tiltl; ?>
+			<?php endif; ?>
 		</div>
-	</div>
+		<?php endif; ?>
+		<div class="container-bottom-a">
+			<div class="grid <?php echo $this->params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottomacols'); ?>">
+				<jdoc:include type="modules" name="bottom-a" style="html5" />
+			</div>
+		</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('bottom-b', true)) : ?>
-	<div class="container-bottom-b">
-		<div class="grid <?php echo $this->params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottombcols'); ?>">
-			<jdoc:include type="modules" name="bottom-b" />
+		<?php if ($this->params->get('bottombdiv') != 0) : ?>
+		<div class="custom-shape-divider bottom-b">
+			<?php if ($this->params->get('bottombdiv') == 1) : ?>
+				<?php echo $wave; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('bottombdiv') == 2) : ?>
+				<?php echo $tiltr; ?>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('bottombdiv') == 3) : ?>
+				<?php echo $tiltl; ?>
+			<?php endif; ?>
 		</div>
-	</div>
+		<?php endif; ?>
+		<div class="container-bottom-b">
+			<div class="grid <?php echo $this->params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottombcols'); ?>">
+				<jdoc:include type="modules" name="bottom-b" />
+			</div>
+		</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('footer', true)) : ?>

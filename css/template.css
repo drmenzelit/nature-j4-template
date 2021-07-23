@@ -64,6 +64,10 @@ h2,
 h3 {
   font-size: clamp(var(--fluid-type-min, 1rem), calc(1rem + var(--fluid-type-target, 3vw)), var(--fluid-type-max, 1.3rem));
 }
+h2,
+h3 {
+  margin-top: var(--s2);
+}
 h1 {
   --fluid-type-min: 2.5rem;
   --fluid-type-max: var(--h1size);
@@ -76,6 +80,11 @@ h2 {
 h3 {
   --fluid-type-min: 1.5rem;
   --fluid-type-max: var(--h3size);
+}
+.main-content h2:first-child,
+.main-content h3:first-child,
+.main-content h4:first-child {
+  margin-top: 0;
 }
 p + p {
   margin-top: var(--s1);
@@ -139,8 +148,10 @@ button {
   border: 1px solid #ced4da;
 }
 input[type="checkbox"] {
-  margin-inline-start: 0;
-  margin-inline-end: .5rem;
+  -webkit-margin-start: 0;
+          margin-inline-start: 0;
+  -webkit-margin-end: .5rem;
+          margin-inline-end: .5rem;
   margin-block: 0;
 }
 .form-check,
@@ -159,8 +170,8 @@ input[type="checkbox"] {
   background-color: #eaedf0;
   border: 1px solid #ced4da;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .form-control {
   display: block;
@@ -270,6 +281,8 @@ iframe {
   right: 5em;
   z-index: 1070;
   display: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   padding: .5em;
   margin: .5em;
@@ -564,11 +577,8 @@ meter {
   pointer-events: none;
 }
 .modal.fade .modal-dialog {
-  transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
-  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
-  -webkit-transform: translate(0, -50px);
-          transform: translate(0, -50px);
+  transform: translate(0, -50px);
 }
 @media (prefers-reduced-motion: reduce) {
   .modal.fade .modal-dialog {
@@ -576,12 +586,10 @@ meter {
   }
 }
 .modal.show .modal-dialog {
-  -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 .modal.modal-static .modal-dialog {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 .modal-dialog-scrollable {
   height: calc(100% - 1rem);
@@ -607,7 +615,6 @@ meter {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: .3rem;
   outline: 0;
 }
 .modal-backdrop {
@@ -704,16 +711,9 @@ meter {
 .modal-fullscreen .modal-content {
   height: 100%;
   border: 0;
-  border-radius: 0;
-}
-.modal-fullscreen .modal-header {
-  border-radius: 0;
 }
 .modal-fullscreen .modal-body {
   overflow-y: auto;
-}
-.modal-fullscreen .modal-footer {
-  border-radius: 0;
 }
 @media (max-width: 35.98em) {
   .modal-fullscreen-sm-down {
@@ -725,16 +725,9 @@ meter {
   .modal-fullscreen-sm-down .modal-content {
     height: 100%;
     border: 0;
-    border-radius: 0;
-  }
-  .modal-fullscreen-sm-down .modal-header {
-    border-radius: 0;
   }
   .modal-fullscreen-sm-down .modal-body {
     overflow-y: auto;
-  }
-  .modal-fullscreen-sm-down .modal-footer {
-    border-radius: 0;
   }
 }
 @media (max-width: 47.98em) {
@@ -747,16 +740,9 @@ meter {
   .modal-fullscreen-md-down .modal-content {
     height: 100%;
     border: 0;
-    border-radius: 0;
-  }
-  .modal-fullscreen-md-down .modal-header {
-    border-radius: 0;
   }
   .modal-fullscreen-md-down .modal-body {
     overflow-y: auto;
-  }
-  .modal-fullscreen-md-down .modal-footer {
-    border-radius: 0;
   }
 }
 @media (max-width: 61.98em) {
@@ -769,16 +755,9 @@ meter {
   .modal-fullscreen-lg-down .modal-content {
     height: 100%;
     border: 0;
-    border-radius: 0;
-  }
-  .modal-fullscreen-lg-down .modal-header {
-    border-radius: 0;
   }
   .modal-fullscreen-lg-down .modal-body {
     overflow-y: auto;
-  }
-  .modal-fullscreen-lg-down .modal-footer {
-    border-radius: 0;
   }
 }
 @media (max-width: 74.98em) {
@@ -791,16 +770,9 @@ meter {
   .modal-fullscreen-xl-down .modal-content {
     height: 100%;
     border: 0;
-    border-radius: 0;
-  }
-  .modal-fullscreen-xl-down .modal-header {
-    border-radius: 0;
   }
   .modal-fullscreen-xl-down .modal-body {
     overflow-y: auto;
-  }
-  .modal-fullscreen-xl-down .modal-footer {
-    border-radius: 0;
   }
 }
 .jviewport-height10 {
@@ -887,6 +859,204 @@ meter {
   border-radius: .25rem;
   opacity: .5;
 }
+/* Tooltip and Popover */
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  margin: 0;
+  font-size: .9rem;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: break-word;
+  white-space: normal;
+  line-break: auto;
+  opacity: 0;
+}
+.tooltip.show {
+  opacity: .9;
+}
+.tooltip .tooltip-arrow {
+  position: absolute;
+  display: block;
+  width: .8rem;
+  height: .4rem;
+}
+.tooltip .tooltip-arrow::before {
+  position: absolute;
+  content: "";
+  border-color: transparent;
+  border-style: solid;
+}
+.bs-tooltip-top, .bs-tooltip-auto[data-popper-placement^=top] {
+  padding: .4rem 0;
+}
+.bs-tooltip-top .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow {
+  bottom: 0;
+}
+.bs-tooltip-top .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+  top: -1px;
+  border-width: .4rem .4rem 0;
+  border-top-color: #000;
+}
+.bs-tooltip-end, .bs-tooltip-auto[data-popper-placement^=right] {
+  padding: 0 .4rem;
+}
+.bs-tooltip-end .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow {
+  left: 0;
+  width: .4rem;
+  height: .8rem;
+}
+.bs-tooltip-end .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+  right: -1px;
+  border-width: .4rem .4rem .4rem 0;
+  border-right-color: #000;
+}
+.bs-tooltip-bottom, .bs-tooltip-auto[data-popper-placement^=bottom] {
+  padding: .4rem 0;
+}
+.bs-tooltip-bottom .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow {
+  top: 0;
+}
+.bs-tooltip-bottom .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+  bottom: -1px;
+  border-width: 0 .4rem .4rem;
+  border-bottom-color: #000;
+}
+.bs-tooltip-start, .bs-tooltip-auto[data-popper-placement^=left] {
+  padding: 0 .4rem;
+}
+.bs-tooltip-start .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow {
+  right: 0;
+  width: .4rem;
+  height: .8rem;
+}
+.bs-tooltip-start .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+  left: -1px;
+  border-width: .4rem 0 .4rem .4rem;
+  border-left-color: #000;
+}
+.tooltip-inner {
+  max-width: 200px;
+  padding: .25rem .5rem;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+}
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0 /* rtl:ignore */;
+  z-index: 1060;
+  display: block;
+  max-width: 276px;
+  font-size: .9rem;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: break-word;
+  white-space: normal;
+  line-break: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+.popover .popover-arrow {
+  position: absolute;
+  display: block;
+  width: 1rem;
+  height: .5rem;
+}
+.popover .popover-arrow::before, .popover .popover-arrow::after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-color: transparent;
+  border-style: solid;
+}
+.bs-popover-top > .popover-arrow, .bs-popover-auto[data-popper-placement^=top] > .popover-arrow {
+  bottom: calc(-.5rem - 1px);
+}
+.bs-popover-top > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=top] > .popover-arrow::before {
+  bottom: 0;
+  border-width: .5rem .5rem 0;
+  border-top-color: rgba(0, 0, 0, .25);
+}
+.bs-popover-top > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=top] > .popover-arrow::after {
+  bottom: 1px;
+  border-width: .5rem .5rem 0;
+  border-top-color: #fff;
+}
+.bs-popover-end > .popover-arrow, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow {
+  left: calc(-.5rem - 1px);
+  width: .5rem;
+  height: 1rem;
+}
+.bs-popover-end > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow::before {
+  left: 0;
+  border-width: .5rem .5rem .5rem 0;
+  border-right-color: rgba(0, 0, 0, .25);
+}
+.bs-popover-end > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow::after {
+  left: 1px;
+  border-width: .5rem .5rem .5rem 0;
+  border-right-color: #fff;
+}
+.bs-popover-bottom > .popover-arrow, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow {
+  top: calc(-.5rem - 1px);
+}
+.bs-popover-bottom > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::before {
+  top: 0;
+  border-width: 0 .5rem .5rem;
+  border-bottom-color: rgba(0, 0, 0, .25);
+}
+.bs-popover-bottom > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::after {
+  top: 1px;
+  border-width: 0 .5rem .5rem;
+  border-bottom-color: #fff;
+}
+.bs-popover-bottom .popover-header::before, .bs-popover-auto[data-popper-placement^=bottom] .popover-header::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 1rem;
+  margin-left: -.5rem;
+  content: "";
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bs-popover-start > .popover-arrow, .bs-popover-auto[data-popper-placement^=left] > .popover-arrow {
+  right: calc(-.5rem - 1px);
+  width: .5rem;
+  height: 1rem;
+}
+.bs-popover-start > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=left] > .popover-arrow::before {
+  right: 0;
+  border-width: .5rem 0 .5rem .5rem;
+  border-left-color: rgba(0, 0, 0, .25);
+}
+.bs-popover-start > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=left] > .popover-arrow::after {
+  right: 1px;
+  border-width: .5rem 0 .5rem .5rem;
+  border-left-color: #fff;
+}
+.popover-header {
+  padding: .5rem 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-top-left-radius: calc(.3rem - 1px);
+  border-top-right-radius: calc(.3rem - 1px);
+}
+.popover-header:empty {
+  display: none;
+}
+.popover-body {
+  padding: 1rem;
+  color: #22262a;
+}
 
 /* Error */
 body.error-site {
@@ -966,6 +1136,9 @@ body.error-site footer {
     max-width: 100%;
     padding: 0;
     overflow: auto;
+  }
+  .full-width {
+    margin: 0 var(--s2);
   }
   article {
     padding: 10pt;

@@ -402,7 +402,7 @@
 				<field
 					name="topb"
 					type="radio"
-					parentclass="span-2-inline stack"
+					parentclass="span-1-inline stack"
 					label="TPL_NATURE_TOPB_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -410,6 +410,20 @@
 					>
 					<option value="0">TPL_NATURE_POSITION_FULL_LEFT</option>
 					<option value="1">TPL_NATURE_POSITION_WRAPPER_RIGHT</option>
+				</field>
+
+				<field
+					name="topbdiv"
+					type="list"
+					parentclass="span-1-inline stack"
+					default="0"
+					label="TPL_NATURE_DIV_LABEL"
+					description=""
+					>
+					<option value="0">TPL_NATURE_DIV_NONE</option>
+  					<option value="1">TPL_NATURE_DIV_WAVE</option>
+  					<option value="2">TPL_NATURE_DIV_TILTR</option>
+  					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -437,7 +451,7 @@
 				<field
 					name="bottoma"
 					type="radio"
-					parentclass="span-2-inline stack"
+					parentclass="span-1-inline stack"
 					label="TPL_NATURE_BOTTOMA_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -445,6 +459,20 @@
 					>
 					<option value="0">TPL_NATURE_POSITION_FULL_LEFT</option>
 					<option value="1">TPL_NATURE_POSITION_WRAPPER_RIGHT</option>
+				</field>
+
+				<field
+					name="bottomadiv"
+					type="list"
+					parentclass="span-1-inline stack"
+					default="0"
+					label="TPL_NATURE_DIV_LABEL"
+					description=""
+					>
+					<option value="0">TPL_NATURE_DIV_NONE</option>
+  					<option value="1">TPL_NATURE_DIV_WAVE</option>
+  					<option value="2">TPL_NATURE_DIV_TILTR</option>
+  					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -472,7 +500,7 @@
 				<field
 					name="bottomb"
 					type="radio"
-					parentclass="span-2-inline stack"
+					parentclass="span-1-inline stack"
 					label="TPL_NATURE_BOTTOMB_LABEL"
 					layout="joomla.form.field.radio.switcher"
 					default="1"
@@ -480,6 +508,20 @@
 					>
 					<option value="0">TPL_NATURE_POSITION_FULL_LEFT</option>
 					<option value="1">TPL_NATURE_POSITION_WRAPPER_RIGHT</option>
+				</field>
+
+				<field
+					name="bottombdiv"
+					type="list"
+					parentclass="span-1-inline stack"
+					default="0"
+					label="TPL_NATURE_DIV_LABEL"
+					description=""
+					>
+					<option value="0">TPL_NATURE_DIV_NONE</option>
+  					<option value="1">TPL_NATURE_DIV_WAVE</option>
+  					<option value="2">TPL_NATURE_DIV_TILTR</option>
+  					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
