@@ -15,19 +15,20 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 $app              = Factory::getApplication();
 $wa               = $this->getWebAssetManager();
 $document         = $app->getDocument();
+$params = $this->params;
 
 // Template path
 $templatePath = 'templates/' . $this->template;
 
 // Load FontAwesome
-if ($this->params->get('fontawesome') == 1)
+if ($params->get('fontawesome') == 1)
 {
 	$wa->registerAndUseStyle('fontawesome', $templatePath . '/css/vendor/fontawesome-free/fontawesome.css');
 	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 }
 
 // Use a font scheme if set in the template style options
-$paramsFontScheme = $this->params->get('useFontScheme', false);
+$paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
@@ -51,13 +52,13 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1)
 $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
-if ($this->params->get('logoFile'))
+if ($params->get('logoFile'))
 {
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+	$logo = '<img src="' . Uri::root() . htmlspecialchars($params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
 }
-elseif ($this->params->get('siteTitle'))
+elseif ($params->get('siteTitle'))
 {
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {

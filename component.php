@@ -11,6 +11,7 @@ $app = Factory::getApplication();
 $document = $app->getDocument();
 $wa  = $this->getWebAssetManager();
 $wa->useStyle('fontawesome');
+$params = $this->params;
 
 // Browsers support SVG favicons
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
@@ -21,7 +22,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 $templatePath = 'templates/' . $this->template;
 
 // Use a font scheme if set in the template style options
-$paramsFontScheme = $this->params->get('useFontScheme', false);
+$paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
