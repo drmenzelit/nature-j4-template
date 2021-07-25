@@ -2,10 +2,7 @@
 
 defined('_JEXEC') or die;
 
-// Getting params from template
-$params = $app->getTemplate(true)->params;
-
-$document->addStyleDeclaration('
+$wa->addInlineStyle('
 :root {
 	--headerbg: ' . $params->get('headerbg') . ';
 	--headercolor: ' . $params->get('headercolor') . ';
@@ -31,5 +28,5 @@ $document->addStyleDeclaration('
 	--h1size: ' . $params->get('h1') . 'rem;
 	--h2size: ' . $params->get('h2') . 'rem;
 	--h3size: ' . $params->get('h3') . 'rem;
-}
-');
+}'
+);

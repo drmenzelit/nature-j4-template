@@ -34,6 +34,7 @@ $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 $menu     = $app->getMenu()->getActive();
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+$params = $this->params;
 
 // Template path
 $templatePath = 'templates/' . $this->template;
@@ -60,13 +61,13 @@ $tiltl = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 150" preserve
 // Load burgerMenu
 $hasBurger = '';
 
-if ($this->params->get('burgerMenu') == 1)
+if ($params->get('burgerMenu') == 1)
 {
 	$hasBurger .= 'navbar__with-burger';
 }
 
 // Load FontAwesome
-if ($this->params->get('fontawesome') == 1)
+if ($params->get('fontawesome') == 1)
 {
 	$wa->useStyle('fontawesome');
 	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
@@ -78,7 +79,7 @@ else
 }
 
 // Use a font scheme if set in the template style options
-$paramsFontScheme = $this->params->get('useFontScheme', false);
+$paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
@@ -94,13 +95,13 @@ $wa->usePreset('template.nature')
 	->useScript('template.user');
 
 // Logo file or site title param
-if ($this->params->get('logoFile'))
+if ($params->get('logoFile'))
 {
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+	$logo = '<img src="' . Uri::root() . htmlspecialchars($params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
 }
-elseif ($this->params->get('siteTitle'))
+elseif ($params->get('siteTitle'))
 {
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {
@@ -121,7 +122,7 @@ if ($this->countModules('sidebar-right', true))
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
-$stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
+$stickyHeader = $params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
 
 ?>
 <!DOCTYPE html>
@@ -151,7 +152,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	<header class="header <?php echo $stickyHeader; ?>">
 		<a href="#main" class="skip-link">Skip to main content</a>
 		<div class="wrapper header__wrapper">
-			<?php if ($this->params->get('logoPosition')) : ?>
+			<?php if ($params->get('logoPosition')) : ?>
 				<?php if ($this->countModules('logo', true)) : ?>
 					<div class="header__start navbar-brand">
 						<jdoc:include type="modules" name="logo" />
@@ -162,8 +163,8 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 					<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
 						<?php echo $logo; ?>
 					</a>
-					<?php if ($this->params->get('siteDescription')) : ?>
-						<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+					<?php if ($params->get('siteDescription')) : ?>
+						<div class="site-description"><?php echo htmlspecialchars($params->get('siteDescription')); ?></div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -173,7 +174,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 				<?php if ($this->countModules('menu', true)) : ?>
 					<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
 
-					<?php if ($this->params->get('burgerMenu') == 1): ?>
+					<?php if ($params->get('burgerMenu') == 1): ?>
 						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="menu"><?php echo $open; ?></button>
 					<?php endif; ?>
 						<jdoc:include type="modules" name="menu" />
@@ -201,30 +202,30 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 
 	<?php if ($this->countModules('top-a', true)) : ?>
 	<div class="container-top-a">
-		<div class="grid <?php echo $this->params->get('topa') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topacols'); ?>">
+		<div class="grid <?php echo $params->get('topa') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topacols'); ?>">
 			<jdoc:include type="modules" name="top-a" />
 		</div>
 	</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('top-b', true)) : ?>
-		<?php if ($this->params->get('topbdiv') != 0) : ?>
+		<?php if ($params->get('topbdiv') != 0) : ?>
 		<div class="custom-shape-divider top-b">
-			<?php if ($this->params->get('topbdiv') == 1) : ?>
+			<?php if ($params->get('topbdiv') == 1) : ?>
 				<?php echo $wave; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('topbdiv') == 2) : ?>
+			<?php if ($params->get('topbdiv') == 2) : ?>
 				<?php echo $tiltr; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('topbdiv') == 3) : ?>
+			<?php if ($params->get('topbdiv') == 3) : ?>
 				<?php echo $tiltl; ?>
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
 		<div class="container-top-b">
-			<div class="grid <?php echo $this->params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('topbcols'); ?>">
+			<div class="grid <?php echo $params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topbcols'); ?>">
 				<jdoc:include type="modules" name="top-b" />
 			</div>
 		</div>
@@ -243,7 +244,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 			<jdoc:include type="message" />
 
 			<div class="main-content  <?php echo $hasClass; ?>">
-					<?php if (($this->params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
+					<?php if (($params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
 						<div class="container-sidebar sidebar--left">
 							<jdoc:include type="modules" name="sidebar-left" style="html5" />
 						</div>
@@ -251,7 +252,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 
 					<jdoc:include type="component" />
 
-					<?php if (($this->params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
+					<?php if (($params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
 						<div class="container-sidebar sidebar--right">
 							<jdoc:include type="modules" name="sidebar-right" style="html5" />
 						</div>
@@ -267,46 +268,46 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	</main>
 
 	<?php if ($this->countModules('bottom-a', true)) : ?>
-		<?php if ($this->params->get('bottomadiv') != 0) : ?>
+		<?php if ($params->get('bottomadiv') != 0) : ?>
 		<div class="custom-shape-divider bottom-a">
-			<?php if ($this->params->get('bottomadiv') == 1) : ?>
+			<?php if ($params->get('bottomadiv') == 1) : ?>
 				<?php echo $wave; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('bottomadiv') == 2) : ?>
+			<?php if ($params->get('bottomadiv') == 2) : ?>
 				<?php echo $tiltr; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('bottomadiv') == 3) : ?>
+			<?php if ($params->get('bottomadiv') == 3) : ?>
 				<?php echo $tiltl; ?>
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
 		<div class="container-bottom-a">
-			<div class="grid <?php echo $this->params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottomacols'); ?>">
+			<div class="grid <?php echo $params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottomacols'); ?>">
 				<jdoc:include type="modules" name="bottom-a" style="html5" />
 			</div>
 		</div>
 	<?php endif; ?>
 
 	<?php if ($this->countModules('bottom-b', true)) : ?>
-		<?php if ($this->params->get('bottombdiv') != 0) : ?>
+		<?php if ($params->get('bottombdiv') != 0) : ?>
 		<div class="custom-shape-divider bottom-b">
-			<?php if ($this->params->get('bottombdiv') == 1) : ?>
+			<?php if ($params->get('bottombdiv') == 1) : ?>
 				<?php echo $wave; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('bottombdiv') == 2) : ?>
+			<?php if ($params->get('bottombdiv') == 2) : ?>
 				<?php echo $tiltr; ?>
 			<?php endif; ?>
 
-			<?php if ($this->params->get('bottombdiv') == 3) : ?>
+			<?php if ($params->get('bottombdiv') == 3) : ?>
 				<?php echo $tiltl; ?>
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
 		<div class="container-bottom-b">
-			<div class="grid <?php echo $this->params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $this->params->get('bottombcols'); ?>">
+			<div class="grid <?php echo $params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottombcols'); ?>">
 				<jdoc:include type="modules" name="bottom-b" />
 			</div>
 		</div>
@@ -320,7 +321,7 @@ $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top
 	</footer>
 	<?php endif; ?>
 
-	<?php if ($this->params->get('backTop') == 1) : ?>
+	<?php if ($params->get('backTop') == 1) : ?>
 		<div class="back-to-top-wrapper">
 			<a href="#top" id="back-top" class="back-to-top-link" aria-label="<?php echo Text::_('TPL_NATURE_BACKTOTOP'); ?>">
 				<span class="arrow-up" aria-hidden="true">&#9650;</span>
