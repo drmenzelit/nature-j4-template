@@ -9,13 +9,18 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 
-/** @var JDocumentHtml $this */
+/** @var Joomla\CMS\Document\HtmlDocument $this */
 
 $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 $app              = Factory::getApplication();
 $wa               = $this->getWebAssetManager();
 $document         = $app->getDocument();
-$params = $this->params;
+$params 		  = $this->params;
+
+// Browsers support SVG favicons
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
 // Template path
 $templatePath = 'templates/' . $this->template;
@@ -23,8 +28,13 @@ $templatePath = 'templates/' . $this->template;
 // Load FontAwesome
 if ($params->get('fontawesome') == 1)
 {
-	$wa->registerAndUseStyle('fontawesome', $templatePath . '/css/vendor/fontawesome-free/fontawesome.css');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
+	$wa->useStyle('fontawesome');
+}
+else
+{
+	$this->getPreloadManager()->preload($templatePath . '/css/icons.css', ['as' => 'style']);
+	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
 }
 
 // Use a font scheme if set in the template style options
@@ -32,25 +42,20 @@ $paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
-	// Prefetch the stylesheet for the font scheme, actually we need to prefetch the font(s)
 	$assetFontScheme  = 'fontscheme.' . $paramsFontScheme;
+	$this->getPreloadManager()->preload($templatePath . '/css/global/' . $paramsFontScheme . '.css', ['as' => 'style']);
 	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', $assetFontScheme)->getUri(), ['as' => 'style']);
 }
 
 // Enable assets
-$wa->usePreset('template.nature')
-	->useStyle('template.offline')
+$this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri(), ['as' => 'style']);
+$wa->useStyle('template.nature')
+	->useScript('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user');
 
 // Logo file or site title param
 $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-
-// Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
 if ($params->get('logoFile'))
 {

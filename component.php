@@ -5,13 +5,12 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
-/** @var JDocumentHtml $this */
+/** @var Joomla\CMS\Document\HtmlDocument $this */
 
-$app = Factory::getApplication();
-$document = $app->getDocument();
-$wa  = $this->getWebAssetManager();
-$wa->useStyle('fontawesome');
-$params = $this->params;
+$app 		= Factory::getApplication();
+$document 	= $app->getDocument();
+$wa  		= $this->getWebAssetManager();
+$params 	= $this->params;
 
 // Browsers support SVG favicons
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
@@ -21,19 +20,22 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 // Template path
 $templatePath = 'templates/' . $this->template;
 
+$wa->useStyle('fontawesome');
+
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
-	// Prefetch the stylesheet for the font scheme, actually we need to prefetch the font(s)
 	$assetFontScheme  = 'fontscheme.' . $paramsFontScheme;
+	$this->getPreloadManager()->preload($templatePath . '/css/global/' . $paramsFontScheme . '.css', ['as' => 'style']);
 	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', $assetFontScheme)->getUri(), ['as' => 'style']);
 }
 
 // Enable assets
-$wa->usePreset('template.nature')
+$this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri(), ['as' => 'style']);
+$wa->useStyle('template.nature')
+	->useScript('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user');
 

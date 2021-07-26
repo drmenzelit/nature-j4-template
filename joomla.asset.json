@@ -9,23 +9,7 @@
       "name": "template.nature",
       "description": "The css file to be used.",
       "type": "style",
-      "uri": "template.css",
-      "dependencies": [
-        "template.reset",
-        "template.layout"
-      ]
-    },
-    {
-      "name": "template.reset",
-      "description": "CSS reset.",
-      "type": "style",
-      "uri": "reset.css"
-    },
-    {
-      "name": "template.layout",
-      "description": "CSS for layout.",
-      "type": "style",
-      "uri": "layout.css"
+      "uri": "template.css"
     },
     {
       "name": "template.offline",
@@ -58,14 +42,6 @@
       "uri":  "user.js",
       "dependencies": [
         "template.nature"
-      ]
-    },
-    {
-      "name": "template.nature",
-      "type": "preset",
-      "dependencies": [
-        "template.nature#style",
-        "template.nature#script"
       ]
     },
     {

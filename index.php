@@ -16,9 +16,9 @@ use Joomla\CMS\Uri\Uri;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
-$app = Factory::getApplication();
-$wa  = $this->getWebAssetManager();
-$document = $app->getDocument();
+$app 		= Factory::getApplication();
+$wa  		= $this->getWebAssetManager();
+$document 	= $app->getDocument();
 
 // Browsers support SVG favicons
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
@@ -26,15 +26,15 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alte
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
 // Detecting Active Variables
-$option   = $app->input->getCmd('option', '');
-$view     = $app->input->getCmd('view', '');
-$layout   = $app->input->getCmd('layout', '');
-$task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
-$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$menu     = $app->getMenu()->getActive();
-$pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
-$params = $this->params;
+$option   	= $app->input->getCmd('option', '');
+$view     	= $app->input->getCmd('view', '');
+$layout   	= $app->input->getCmd('layout', '');
+$task     	= $app->input->getCmd('task', '');
+$itemid   	= $app->input->getCmd('Itemid', '');
+$sitename 	= htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu     	= $app->getMenu()->getActive();
+$pageclass 	= $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+$params 	= $this->params;
 
 // Template path
 $templatePath = 'templates/' . $this->template;
@@ -69,13 +69,13 @@ if ($params->get('burgerMenu') == 1)
 // Load FontAwesome
 if ($params->get('fontawesome') == 1)
 {
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 	$wa->useStyle('fontawesome');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 }
 else
 {
+	$this->getPreloadManager()->preload($templatePath . '/css/icons.css', ['as' => 'style']);
 	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', 'icons')->getUri(), ['as' => 'style']);
 }
 
 // Use a font scheme if set in the template style options
@@ -83,14 +83,15 @@ $paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
-	// Prefetch the stylesheet for the font scheme, actually we need to prefetch the font(s)
 	$assetFontScheme  = 'fontscheme.' . $paramsFontScheme;
+	$this->getPreloadManager()->preload($templatePath . '/css/global/' . $paramsFontScheme . '.css', ['as' => 'style']);
 	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
-	$this->getPreloadManager()->prefetch($wa->getAsset('style', $assetFontScheme)->getUri(), ['as' => 'style']);
 }
 
 // Enable assets
-$wa->usePreset('template.nature')
+$this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri(), ['as' => 'style']);
+$wa->useStyle('template.nature')
+	->useScript('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user');
 
