@@ -69,13 +69,13 @@ if ($params->get('burgerMenu') == 1)
 // Load FontAwesome
 if ($params->get('fontawesome') == 1)
 {
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri(), ['as' => 'style']);
 	$wa->useStyle('fontawesome');
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 else
 {
-	$this->getPreloadManager()->preload($templatePath . '/css/icons.css', ['as' => 'style']);
 	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 
 // Use a font scheme if set in the template style options
@@ -84,16 +84,16 @@ $paramsFontScheme = $params->get('useFontScheme', false);
 if ($paramsFontScheme)
 {
 	$assetFontScheme  = 'fontscheme.' . $paramsFontScheme;
-	$this->getPreloadManager()->preload($templatePath . '/css/global/' . $paramsFontScheme . '.css', ['as' => 'style']);
 	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
+	$this->getPreloadManager()->preload($wa->getAsset('style', $assetFontScheme)->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 
 // Enable assets
-$this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri(), ['as' => 'style']);
 $wa->useStyle('template.nature')
 	->useScript('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user');
+$this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 
 // Logo file or site title param
 if ($params->get('logoFile'))
