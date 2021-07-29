@@ -17,11 +17,6 @@ $wa               = $this->getWebAssetManager();
 $document         = $app->getDocument();
 $params 		  = $this->params;
 
-// Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
-
 // Template path
 $templatePath = 'templates/' . $this->template;
 
@@ -70,9 +65,18 @@ else
 	$logo = '<img src="' . $templatePath . '/images/nature-logo.png" class="logo" alt="' . $sitename . '">';
 }
 
-$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
+// Favicons
+$this->addHeadLink(HTMLHelper::_('image', 'apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon-16x16.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
+$this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#41599a']);
+$this->addHeadLink($templatePath . '/images/site.webmanifest', 'manifest', 'rel', []);
 
+$this->setMetaData('msapplication-TileColor', '#41599a');
+$this->setMetaData('theme-color', '#ffffff');
+$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 ?>
+
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
