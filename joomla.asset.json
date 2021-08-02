@@ -52,7 +52,7 @@
     {
       "name": "fontawesome",
       "type": "style",
-      "uri": "media/system/css/joomla-fontawesome.min.css"
+      "uri": "vendor/fontawesome-free/fontawesome.css"
     }
 
   ]
