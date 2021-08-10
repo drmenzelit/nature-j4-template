@@ -46,8 +46,10 @@ if ($paramsFontScheme)
 $wa->useStyle('template.nature')
 	->useScript('template.nature')
 	->useStyle('template.user')
-	->useScript('template.user');
+	->useScript('template.user')
+  ->useStyle('template.offline');
 $this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+$this->getPreloadManager()->preload($wa->getAsset('style', 'template.offline')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 
 // Logo file or site title param
 $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
