@@ -83,6 +83,8 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -207,6 +209,11 @@ fieldset {
 button {
   cursor: pointer;
   background-color: #eaedf0;
+}
+button[class*="plg_system_webauthn_login_button"] {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 .input-group {
   position: relative;
@@ -928,6 +935,7 @@ main {
 }
 /* Footer */
 footer {
+  margin-top: auto;
   padding: var(--s2) var(--s2);
   font-weight: 600;
   color: var(--footercolor);
