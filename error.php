@@ -61,14 +61,8 @@ else
 }
 
 // Favicons
-$this->addHeadLink(HTMLHelper::_('image', 'apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon-16x16.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink($templatePath . '/images/site.webmanifest', 'manifest', 'rel', []);
+include 'includes/favicons.php';
 
-$this->setMetaData('msapplication-TileColor', '#41599a');
-$this->setMetaData('theme-color', '#ffffff');
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 ?>
 

@@ -20,18 +20,6 @@ $params 		  = $this->params;
 // Template path
 $templatePath = 'templates/' . $this->template;
 
-// Load FontAwesome
-if ($params->get('fontawesome') == 1)
-{
-	$wa->useStyle('fontawesome');
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
-}
-else
-{
-	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
-}
-
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $params->get('useFontScheme', false);
 
@@ -47,7 +35,7 @@ $wa->useStyle('template.nature')
 	->useScript('template.nature')
 	->useStyle('template.user')
 	->useScript('template.user')
-  ->useStyle('template.offline');
+  	->useStyle('template.offline');
 $this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 $this->getPreloadManager()->preload($wa->getAsset('style', 'template.offline')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 
@@ -68,14 +56,8 @@ else
 }
 
 // Favicons
-$this->addHeadLink(HTMLHelper::_('image', 'apple-touch-icon.png', '', [], true, 1), 'apple-touch-icon', 'rel', ['sizes' => '180x180']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon-32x32.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '32x32', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon-16x16.png', '', [], true, 1), 'icon', 'rel', ['sizes' => '16x16', 'type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#41599a']);
-$this->addHeadLink($templatePath . '/images/site.webmanifest', 'manifest', 'rel', []);
+include 'includes/favicons.php';
 
-$this->setMetaData('msapplication-TileColor', '#41599a');
-$this->setMetaData('theme-color', '#ffffff');
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 ?>
 
