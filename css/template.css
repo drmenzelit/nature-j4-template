@@ -516,6 +516,7 @@ a.btn {
 }
 .btn-secondary:hover {
   background-color: var(--grey1);
+  color: #fff;
 }
 .readmore .btn {
   padding: var(--s1);
