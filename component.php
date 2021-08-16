@@ -15,7 +15,19 @@ $params 	= $this->params;
 // Template path
 $templatePath = 'templates/' . $this->template;
 
-$wa->useStyle('fontawesome');
+// Load Icons
+if ($params->get('icons') == 1)
+{
+	$wa->useStyle('fontawesome');
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+}
+elseif ($params->get('icons') == 2)
+{
+	$wa->registerAndUseStyle('bi-icons', $templatePath . '/css/bootstrap-icons.css');
+	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'bi-icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+}
 
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $params->get('useFontScheme', false);

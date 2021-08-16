@@ -61,15 +61,17 @@ if ($params->get('burgerMenu') == 1)
 	$hasBurger .= 'navbar__with-burger';
 }
 
-// Load FontAwesome
-if ($params->get('fontawesome') == 1)
+// Load Icons
+if ($params->get('icons') == 1)
 {
 	$wa->useStyle('fontawesome');
 	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
-else
+elseif ($params->get('icons') == 2)
 {
+	$wa->registerAndUseStyle('bi-icons', $templatePath . '/css/bootstrap-icons.css');
 	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
+	$this->getPreloadManager()->preload($wa->getAsset('style', 'bi-icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 	$this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 

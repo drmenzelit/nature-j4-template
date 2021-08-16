@@ -214,6 +214,7 @@ button[class*="plg_system_webauthn_login_button"] {
   display: flex;
   align-items: center;
   gap: .5rem;
+  width: 100%;
 }
 .input-group {
   position: relative;
@@ -648,6 +649,9 @@ meter {
   max-width: var(--wrapperwidth);
   margin: 0 auto;
 }
+.mod-breadcrumbs__wrapper {
+  width: 100%;
+}
 /* Header */
 header {
   position: relative;
@@ -912,6 +916,15 @@ main {
 .page-link {
   padding: var(--s0);
 }
+.counter {
+  font-size: .9rem;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s0);
+}
 .back-to-top-wrapper {
   position: absolute;
   top: calc(100vh + 10em);
@@ -968,7 +981,7 @@ footer .nav-item.active a {
 .menu-horizontal {
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: var(--s0);
   align-items: center;
   justify-content: center;
   font-weight: 600;
@@ -1163,9 +1176,6 @@ footer .nav-item.active a {
 }
 .mod-articles-category-readmore {
   margin-top: var(--s0);
-}
-.mod-login input {
-  width: 300px;
 }
 .mod-login input[type="checkbox"],
 .mod-login input[type="radio"] {
