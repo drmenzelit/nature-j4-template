@@ -13,7 +13,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('timeline', 'templates/nature/css/quotes.css');
+$wa->registerAndUseStyle('quotes', 'quotes.css');
 
 if (!$list)
 {
