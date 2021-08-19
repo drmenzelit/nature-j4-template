@@ -899,6 +899,9 @@ main {
   fill: var(--bottombbg);
 }
 /* Pagination */
+.pagenavigation {
+  clear: both;
+}
 .pagenavigation .pagination {
   display: flex;
   flex-wrap: wrap;
