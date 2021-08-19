@@ -141,9 +141,9 @@
 					default="2"
 					filter="integer"
 					>
-          <option value="0">TPL_NATURE_ICONS_NONE</option>
-          <option value="1">TPL_NATURE_ICONS_FONTAWESOME</option>
-          <option value="2">TPL_NATURE_ICONS_BOOTSTRAP</option>
+					<option value="0">TPL_NATURE_ICONS_NONE</option>
+					<option value="1">TPL_NATURE_ICONS_FONTAWESOME</option>
+					<option value="2">TPL_NATURE_ICONS_BOOTSTRAP</option>
  				</field>
 
 				<field
@@ -442,9 +442,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -491,9 +491,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -540,9 +540,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
