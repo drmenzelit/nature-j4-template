@@ -27,8 +27,8 @@ $layout   	= $app->input->getCmd('layout', '');
 $task     	= $app->input->getCmd('task', '');
 $itemid   	= $app->input->getCmd('Itemid', '');
 $sitename 	= htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$menu     	= $app->getMenu()->getActive();
-$pageclass 	= $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+$menu     	= $app->getMenu();
+$pageclass 	= $menu->getActive() !== null ? $menu->getActive()->getParams()->get('pageclass_sfx', '') : '';
 $params 	= $this->params;
 
 // Template path
@@ -134,12 +134,12 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 	<jdoc:include type="styles" />
 	<jdoc:include type="scripts" />
 </head>
-
 <body class="site <?php echo $option
 	. ' view-' . $view
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
+  . (($menu->getActive() == $menu->getDefault()) ? ' front' : ' page')
 	. ' ' . $pageclass;
 	echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="template" client="site">
+<extension type="template" client="site" method="upgrade">
 	<name>nature</name>
-	<version>1.0</version>
+	<version>1.0.1</version>
 	<creationDate>February 2021</creationDate>
 	<author>Viviana Menzel</author>
 	<authorEmail>info@dr-menzel-it.de</authorEmail>
 	<copyright>(C) 2021 Dr. Menzel IT</copyright>
 	<description>TPL_NATURE_XML_DESCRIPTION</description>
+  <updateservers>
+		<server type="extension" name="Nature Update Site">https://raw.githubusercontent.com/drmenzelit/nature-j4-template/master/update.xml</server>
+	</updateservers>
 	<files>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
@@ -142,9 +145,9 @@
 					default="2"
 					filter="integer"
 					>
-          <option value="0">TPL_NATURE_ICONS_NONE</option>
-          <option value="1">TPL_NATURE_ICONS_FONTAWESOME</option>
-          <option value="2">TPL_NATURE_ICONS_BOOTSTRAP</option>
+					<option value="0">TPL_NATURE_ICONS_NONE</option>
+					<option value="1">TPL_NATURE_ICONS_FONTAWESOME</option>
+					<option value="2">TPL_NATURE_ICONS_BOOTSTRAP</option>
  				</field>
 
 				<field
@@ -446,9 +449,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -496,9 +499,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field
@@ -546,9 +549,9 @@
 					description=""
 					>
 					<option value="0">TPL_NATURE_DIV_NONE</option>
-          <option value="1">TPL_NATURE_DIV_WAVE</option>
-          <option value="2">TPL_NATURE_DIV_TILTR</option>
-          <option value="3">TPL_NATURE_DIV_TILTL</option>
+					<option value="1">TPL_NATURE_DIV_WAVE</option>
+					<option value="2">TPL_NATURE_DIV_TILTR</option>
+					<option value="3">TPL_NATURE_DIV_TILTL</option>
 				</field>
 
 				<field

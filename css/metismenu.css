@@ -40,9 +40,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-.metismenu.mod-menu .metismenu-item > span,
-.metismenu.mod-menu .metismenu-item > a {
   padding: 5px 0;
   margin: 0 var(--s0);
 }
