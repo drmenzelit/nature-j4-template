@@ -114,7 +114,8 @@
 					name="sidebar"
 					type="radio"
 					label="TPL_NATURE_SIDEBAR_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="1"
 					filter="integer"
 					>
@@ -174,7 +175,8 @@
 					name="favicons"
 					type="radio"
 					label="TPL_NATURE_FAVICON_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="0"
 					filter="integer"
 					>
@@ -390,7 +392,8 @@
 					type="radio"
 					parentclass="span-2-inline stack"
 					label="TPL_NATURE_TOPA_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="1"
 					filter="integer"
 					>
@@ -425,7 +428,8 @@
 					type="radio"
 					parentclass="span-1-inline stack"
 					label="TPL_NATURE_TOPB_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="1"
 					filter="integer"
 					>
@@ -474,7 +478,8 @@
 					type="radio"
 					parentclass="span-1-inline stack"
 					label="TPL_NATURE_BOTTOMA_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="1"
 					filter="integer"
 					>
@@ -523,7 +528,8 @@
 					type="radio"
 					parentclass="span-1-inline stack"
 					label="TPL_NATURE_BOTTOMB_LABEL"
-					layout="joomla.form.field.radio.switcher"
+					layout="joomla.form.field.radio.buttons"
+					class="btn-group"
 					default="1"
 					filter="integer"
 					>

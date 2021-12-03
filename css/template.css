@@ -845,6 +845,9 @@ header .nav-item.active > a {
   padding: var(--s4) 0;
   background-color: var(--bottombbg);
 }
+.with-wrapper {
+  padding: var(--s4) var(--s2);
+}
 @media (min-width: 800px) {
   .with-sidebar-left {
     display: grid;

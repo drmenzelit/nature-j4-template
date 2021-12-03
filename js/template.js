@@ -46,11 +46,11 @@ Joomla = window.Joomla || {};
 			navToggle.addEventListener("click", function () {
 			if (navWrapper.classList.contains("active")) {
 				this.setAttribute("aria-expanded", "false");
-				this.setAttribute("aria-label", "menu");
+				this.setAttribute("aria-label", "Open navigation");
 				navWrapper.classList.remove("active");
 			} else {
 				navWrapper.classList.add("active");
-				this.setAttribute("aria-label", "close menu");
+				this.setAttribute("aria-label", "Close navigation");
 				this.setAttribute("aria-expanded", "true");
         if (searchToggle) {
           searchForm.classList.remove("active");
