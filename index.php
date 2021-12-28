@@ -16,20 +16,20 @@ use Joomla\CMS\Uri\Uri;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
-$app 		= Factory::getApplication();
-$wa  		= $this->getWebAssetManager();
-$document 	= $app->getDocument();
+$app       = Factory::getApplication();
+$wa        = $this->getWebAssetManager();
+$document  = $app->getDocument();
 
 // Detecting Active Variables
-$option   	= $app->input->getCmd('option', '');
-$view     	= $app->input->getCmd('view', '');
-$layout   	= $app->input->getCmd('layout', '');
-$task     	= $app->input->getCmd('task', '');
-$itemid   	= $app->input->getCmd('Itemid', '');
-$sitename 	= htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$menu     	= $app->getMenu();
-$pageclass 	= $menu->getActive() !== null ? $menu->getActive()->getParams()->get('pageclass_sfx', '') : '';
-$params 	= $this->params;
+$option    = $app->input->getCmd('option', '');
+$view      = $app->input->getCmd('view', '');
+$layout    = $app->input->getCmd('layout', '');
+$task      = $app->input->getCmd('task', '');
+$itemid    = $app->input->getCmd('Itemid', '');
+$sitename  = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu      = $app->getMenu();
+$pageclass  = $menu->getActive() !== null ? $menu->getActive()->getParams()->get('pageclass_sfx', '') : '';
+$params     = $this->params;
 
 // Template path
 $templatePath = 'templates/' . $this->template;
@@ -80,7 +80,7 @@ $paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
-	$assetFontScheme  = 'fontscheme.' . $paramsFontScheme;
+	$assetFontScheme = 'fontscheme.' . $paramsFontScheme;
 	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
 	$this->getPreloadManager()->preload($wa->getAsset('style', $assetFontScheme)->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
@@ -238,33 +238,37 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
 	<main id="main" tabindex="-1">
 		<div class="wrapper">
-			<?php if ($this->countModules('main-top', true)) : ?>
-				<jdoc:include type="modules" name="main-top" />
-			<?php endif; ?>
-
 			<jdoc:include type="message" />
 
-			<div class="main-content  <?php echo $hasClass; ?>">
-					<?php if (($params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
-						<div class="container-sidebar sidebar--left">
-							<jdoc:include type="modules" name="sidebar-left" style="html5" />
-						</div>
+			<div class="main-content <?php echo $hasClass; ?>">
+
+				<?php if (($params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
+					<div class="container-sidebar sidebar--left">
+						<jdoc:include type="modules" name="sidebar-left" style="html5" />
+					</div>
+				<?php endif; ?>
+
+				<div class="container-content">
+
+					<?php if ($this->countModules('main-top', true)) : ?>
+					<jdoc:include type="modules" name="main-top" />
 					<?php endif; ?>
 
 					<jdoc:include type="component" />
 
-					<?php if (($params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
-						<div class="container-sidebar sidebar--right">
-							<jdoc:include type="modules" name="sidebar-right" style="html5" />
-						</div>
+					<?php if ($this->countModules('main-bottom', true)) : ?>
+					<jdoc:include type="modules" name="main-bottom" />
 					<?php endif; ?>
 
+				</div>
+
+				<?php if (($params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
+					<div class="container-sidebar sidebar--right">
+						<jdoc:include type="modules" name="sidebar-right" style="html5" />
+					</div>
+				<?php endif; ?>
+
 			</div>
-
-			<?php if ($this->countModules('main-bottom', true)) : ?>
-				<jdoc:include type="modules" name="main-bottom" />
-			<?php endif; ?>
-
 		</div>
 	</main>
 

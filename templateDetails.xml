@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">
 	<name>nature</name>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<creationDate>February 2021</creationDate>
 	<author>Viviana Menzel</author>
 	<authorEmail>info@dr-menzel-it.de</authorEmail>
 	<copyright>(C) 2021 Dr. Menzel IT</copyright>
 	<description>TPL_NATURE_XML_DESCRIPTION</description>
-  <updateservers>
+	<updateservers>
 		<server type="extension" name="Nature Update Site">https://raw.githubusercontent.com/drmenzelit/nature-j4-template/master/update.xml</server>
 	</updateservers>
 	<files>
