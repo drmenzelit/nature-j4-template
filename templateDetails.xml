@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">
 	<name>nature</name>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<creationDate>February 2021</creationDate>
 	<author>Viviana Menzel</author>
 	<authorEmail>info@dr-menzel-it.de</authorEmail>
@@ -45,6 +45,8 @@
 		<position>debug</position>
 	</positions>
 	<languages folder="language">
+		<language tag="de-DE">de-DE/tpl_nature.ini</language>
+		<language tag="de-DE">de-DE/tpl_nature.sys.ini</language>
 		<language tag="en-GB">en-GB/tpl_nature.ini</language>
 		<language tag="en-GB">en-GB/tpl_nature.sys.ini</language>
 	</languages>
@@ -574,6 +576,14 @@
 					format="rgba"
 					label="TPL_NATURE_BOTTOMB_BACKGROUND_COLOR_LABEL"
 					description=""
+				/>
+
+				<field
+					name="notePositions"
+					type="note"
+					label="TPL_NATURE_POSITIONS_NOTE_TEXT"
+					heading="p"
+					class="alert alert-warning"
 				/>
 			</fieldset>
 
