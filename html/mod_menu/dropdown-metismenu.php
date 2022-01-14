@@ -15,7 +15,7 @@ use Joomla\Utilities\ArrayHelper;
 
 /** @var WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseScript('metismenu', 'media/templates/site/cassiopeia/js/mod_menu/menu-metismenu.min.js', [], [], ['metismenujs']);
+$wa->registerAndUseScript('metismenu', 'media/templates/site/cassiopeia/js/mod_menu/menu-metismenu.min.js', [], ['defer' => true], ['metismenujs']);
 $wa->registerAndUseStyle('metismenu', 'metismenu.css');
 
 $attributes          = [];
