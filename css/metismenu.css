@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding: 0 var(--s0);
 }
 .metismenu.mod-menu .metismenu-item.parent {
   position: relative;
@@ -37,11 +38,10 @@
 .metismenu.mod-menu .metismenu-item > span,
 .metismenu.mod-menu .metismenu-item > a,
 .metismenu.mod-menu .metismenu-item > button {
+  padding: 5px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 5px 0;
-  margin: 0 var(--s0);
 }
 .metismenu.mod-menu .metismenu-item::after {
   content: none;
@@ -114,6 +114,11 @@
   border: none;
   box-shadow: none;
 }
+.metismenu.mod-menu .mm-toggler:hover {
+  text-decoration: underline;
+  text-decoration-thickness: .125em;
+  text-underline-offset: 7px;
+}
 .metismenu.mod-menu .mm-toggler:after {
   width: 0;
   height: 0;
@@ -125,39 +130,50 @@
   transition: all .3s ease-out;
 }
 .mm-active > .metismenu.mod-menu .mm-toggler:after {
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 .metismenu.mod-menu .mm-toggler[aria-expanded=true]:after {
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
-.sidebar-right .metismenu .mm-collapse,
-.sidebar-left .metismenu .mm-collapse {
+.sidebar--right .metismenu .mm-collapse,
+.sidebar--left .metismenu .mm-collapse {
   position: relative;
   background-color: rgba(0, 0, 0, .03);
 }
-.sidebar-right .metismenu li.parent > ul,
-.sidebar-left .metismenu li.parent > ul {
+.sidebar--right .metismenu li.parent > ul,
+.sidebar--left .metismenu li.parent > ul {
   position: relative;
   top: 0;
+  width: 100%;
   box-shadow: none;
 }
 @media (max-width: 991px) {
-  .sidebar-right .metismenu li.parent > ul,
-  .sidebar-left .metismenu li.parent > ul {
+  .sidebar--right .metismenu li.parent > ul,
+  .sidebar--left .metismenu li.parent > ul {
     width: 100%;
   }
 }
-.sidebar-right .metismenu .metismenu-item > span,
-.sidebar-right .metismenu .metismenu-item > a,
-.sidebar-left .metismenu .metismenu-item > span,
-.sidebar-left .metismenu .metismenu-item > a {
+.sidebar--right .metismenu .metismenu-item > span,
+.sidebar--right .metismenu .metismenu-item > a,
+.sidebar--left .metismenu .metismenu-item > span,
+.sidebar--left .metismenu .metismenu-item > a {
   white-space: inherit;
 }
-.sidebar-right .metismenu .metismenu-item.divider:not(.parent),
-.sidebar-left .metismenu .metismenu-item.divider:not(.parent) {
+.sidebar--right .metismenu .metismenu-item.divider:not(.parent),
+.sidebar--left .metismenu .metismenu-item.divider:not(.parent) {
   width: auto;
   height: 1px;
   border-bottom: 1px solid #ced4da;
 }
+.sidebar--right .metismenu .metismenu-item > button,
+.sidebar--left .metismenu .metismenu-item > button {
+  color: var(--linkcolor);
+  text-decoration: underline;
+  text-decoration-thickness: .125em;
+  text-underline-offset: 6px;
+}
+.sidebar--right .metismenu .metismenu-item > button:hover,
+.sidebar--left .metismenu .metismenu-item > button:hover {
+  color: var(--linkcolorh);
+}
+

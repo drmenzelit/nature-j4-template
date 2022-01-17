@@ -101,7 +101,8 @@ body {
 
 /* A elements that don"t have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -130,8 +131,10 @@ select {
   *::before,
   *::after {
     transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
+    -webkit-animation-duration: .01ms !important;
+            animation-duration: .01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
 }
@@ -401,19 +404,29 @@ iframe {
   width: max-content;
   padding: .5em;
   margin: .5em;
+  text-align: start;
 }
 :hover + [role="tooltip"],
 :focus + [role="tooltip"] {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
   display: block;
+  font-size: .9rem;
+  font-weight: normal;
   color: #000;
   background-color: #fff;
+  border: 1px solid var(--grey2);
+  box-shadow: var(--card-shadow);
 }
 .btn.jmodedit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
   z-index: 900;
   padding: var(--s0);
+  color: var(--linkcolor);
+  background-color: hsla(0,0%,100%,.5);
+  border: 1px solid var(--grey2);
 }
 .small {
   font-size: .9rem;
@@ -729,7 +742,9 @@ header .nav-item.active > a {
 @media (max-width: 799px) {
   .nav__toggle {
     display: block;
-    appearance: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     padding: var(--s0);
     line-height: 1;
     color: var(--headercolor);
@@ -772,7 +787,9 @@ header .nav-item.active > a {
   align-items: center;
 }
 .search__toggle {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   order: 1;
   padding: var(--s0);
   line-height: 1;
@@ -805,7 +822,9 @@ header .nav-item.active > a {
 .container-search input {
   width: 100%;
   min-width: 200px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .container-search .input-group {
   justify-content: center;
@@ -971,6 +990,7 @@ main {
 }
 .back-to-top-link {
   position: fixed;
+  position: -webkit-sticky;
   position: sticky;
   top: calc(100vh - 5rem);
   padding: var(--s1);
@@ -1060,14 +1080,16 @@ footer .nav-item.active a {
 .blog-items[class^="masonry-"],
 .blog-items[class*=" masonry-"] {
   display: block;
-  column-gap: var(--s2);
+  -moz-column-gap: var(--s2);
+       column-gap: var(--s2);
 }
 .blog-items[class^="masonry-"] .blog-item ,
 .blog-items[class*=" masonry-"] .blog-item {
   display: inline-flex;
   margin-bottom: var(--s2);
   page-break-inside: avoid;
-  break-inside: avoid;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
 }
 @media (min-width: 800px) {
   .blog-items.columns-2 {
@@ -1104,13 +1126,16 @@ footer .nav-item.active a {
     order: 1;
   }
   .blog-items.masonry-2 {
-    column-count: 2;
+    -moz-column-count: 2;
+         column-count: 2;
   }
   .blog-items.masonry-3 {
-    column-count: 3;
+    -moz-column-count: 3;
+         column-count: 3;
   }
   .blog-items.masonry-4 {
-    column-count: 4;
+    -moz-column-count: 4;
+         column-count: 4;
   }
 }
 /* Cards */
