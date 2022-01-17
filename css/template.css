@@ -17,28 +17,29 @@
 */
 
 :root {
+  --card-shadow: 1px 1px 6px 0 rgba(12, 12, 13, .2);
+  --card-shadow-hover: 1px 1px 6px 0 rgba(12, 12, 13, .5);
   --danger: hsl(348, 83%, 38%);
   --dangerh: hsl(348, 83%, 28%);
   --dangerl: hsl(348, 83%, 88%);
+  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --hue: 214;
   --info: hsl(195, 100%, 25%);
   --infoh: hsl(195, 100%, 15%);
   --infol: hsl(195, 100%, 85%);
+  --grey1: hsl(0, 0%, 44%);
+  --grey2: hsl(0, 0%, 34%);
+  --s0: .5rem;
+  --s1: 1rem;
+  --s2: 2rem;
+  --s3: 3rem;
+  --s4: 4rem;
   --success: hsl(180, 100%, 19%);
   --successh: hsl(180, 100%, 9%);
   --successl: hsl(180, 100%, 79%);
   --warning: hsl(33, 100%, 25%);
   --warningh: hsl(33, 100%, 15%);
   --warningl: hsl(33, 100%, 85%);
-  --grey1: hsl(0, 0%, 44%);
-  --grey2: hsl(0, 0%, 34%);
-  --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --s0: .5rem;
-  --s1: 1rem;
-  --s2: 2rem;
-  --s3: 3rem;
-  --s4: 4rem;
-  --card-shadow: 1px 1px 6px 0 rgba(12, 12, 13, .2);
-  --card-shadow-hover: 1px 1px 6px 0 rgba(12, 12, 13, .5);
 }
 @media (max-width: 799px) {
   :root {
