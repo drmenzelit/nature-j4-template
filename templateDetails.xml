@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">
 	<name>nature</name>
-	<version>1.0.5</version>
+	<version>1.0.6</version>
 	<creationDate>February 2021</creationDate>
 	<author>Viviana Menzel</author>
 	<authorEmail>info@dr-menzel-it.de</authorEmail>
 	<copyright>(C) 2021 Dr. Menzel IT</copyright>
 	<description>TPL_NATURE_XML_DESCRIPTION</description>
+	<inheritable>1</inheritable>
+	<scriptfile>script.php</scriptfile>
 	<updateservers>
 		<server type="extension" name="Nature Update Site">https://raw.githubusercontent.com/drmenzelit/nature-j4-template/master/update.xml</server>
 	</updateservers>
@@ -21,11 +23,14 @@
 		<filename>template_thumbnail.png</filename>
 		<folder>css</folder>
 		<folder>html</folder>
-		<folder>fonts</folder>
-		<folder>images</folder>
 		<folder>includes</folder>
-		<folder>js</folder>
 	</files>
+	<media destination="templates/site/nature" folder="media">
+		<folder>fonts</folder>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
 	<positions>
 		<position>top-header</position>
 		<position>logo</position>
