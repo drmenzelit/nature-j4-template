@@ -1,4 +1,4 @@
-@import "../../../../media/vendor/roboto-fontface/scss/roboto/roboto-fontface.css";
+@import "../../../../../vendor/roboto-fontface/scss/roboto/roboto-fontface.css";
 :root {
   --font-family-body: "Roboto", sans-serif;
   --font-family-headings: "Roboto", sans-serif;

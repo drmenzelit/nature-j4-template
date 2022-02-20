@@ -1,4 +1,4 @@
-@import "../../../../../media/vendor/joomla-custom-elements/css/joomla-alert.css";
+@import "../../../../../vendor/joomla-custom-elements/css/joomla-alert.css";
 
 #system-message-container:empty {
   display: none;

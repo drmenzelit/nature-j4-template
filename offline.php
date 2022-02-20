@@ -18,7 +18,7 @@ $document         = $app->getDocument();
 $params 		  = $this->params;
 
 // Template path
-$templatePath = 'templates/' . $this->template;
+$templatePath = 'media/templates/site/nature';
 
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $params->get('useFontScheme', false);

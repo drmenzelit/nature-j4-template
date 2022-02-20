@@ -27,7 +27,7 @@ $pageclass 	= $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : ''
 $params = $app->getTemplate(true)->params;
 
 // Template path
-$templatePath = 'templates/' . $this->template;
+$templatePath = 'media/templates/site/nature';
 
 // Use a font scheme if set in the template style options
 $paramsFontScheme = $params->get('useFontScheme', false);

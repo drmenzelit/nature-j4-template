@@ -13,7 +13,7 @@ $wa  		= $this->getWebAssetManager();
 $params 	= $this->params;
 
 // Template path
-$templatePath = 'templates/' . $this->template;
+$templatePath = 'media/templates/site/nature';
 
 // Load Icons
 if ($params->get('icons') == 1)

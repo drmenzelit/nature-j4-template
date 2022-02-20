@@ -9,9 +9,11 @@
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\File;
 use Joomla\CMS\Filesystem\Folder;
 use Joomla\CMS\Installer\InstallerScript;
+use Joomla\CMS\Language\Text;
 
 /**
  * Installation class to perform additional changes during install/uninstall/update
@@ -20,6 +22,7 @@ use Joomla\CMS\Installer\InstallerScript;
  */
 class NatureInstallerScript extends InstallerScript
 {
+
 /**
 	 * Move nature template (s)css or js or image files which are left after deleting
 	 * obsolete core files to the right place in media folder.
@@ -66,21 +69,85 @@ class NatureInstallerScript extends InstallerScript
 			}
 		}
 	}
+
+
+/**
+	 * Ensure the core templates are correctly moved to the new mode.
+	 *
+	 * @return  void
+	 *
+	 * @since   4.1.0
+	 */
+	protected function fixTemplateMode(): void
+	{
+		$db = Factory::getContainer()->get('DatabaseDriver');
+
+		function ($template) use ($db)
+		{
+			$clientId = 0;
+			$query = $db->getQuery(true)
+				->update($db->quoteName('#__template_styles'))
+				->set($db->quoteName('inheritable') . ' = 1')
+				->where($db->quoteName('template')  .  ' = ' . "nature")
+				->where($db->quoteName('client_id') . ' = ' . $clientId);
+
+			try
+			{
+				$db->setQuery($query)->execute();
+			}
+			catch (Exception $e)
+			{
+				echo Text::sprintf('JLIB_DATABASE_ERROR_FUNCTION_FAILED', $e->getCode(), $e->getMessage()) . '<br>';
+
+				return;
+			}
+		};
+	}
+
 		/**
+	 * Function to act prior to installation process begins
+	 *
+	 * @param   string     $action     Which action is happening (install|uninstall|discover_install|update)
+	 * @param   Installer  $installer  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since   3.7.0
+	 */
+	public function preflight($action, $installer)
+	{
+		if ($action === 'update')
+		{
+			// Ensure templates are moved to the correct mode
+			$this->fixTemplateMode();
+		}
+	}
+
+	/**
 	 * Function to perform changes during postflight
 	 *
 	 * @param   string            $type    The action being performed
-	 * @param   ComponentAdapter  $parent  The class calling this method
+	 * @param   Installer  $installer  The class calling this method
 	 *
 	 * @return  void
 	 *
 	 * @since   1.0.6v1
 	 */
-	public function postflight($type, $parent)
+	public function postflight($type, $installer)
 	{
 		if ($type == 'update')
 		{
 			$this->moveTemplateFiles();
+
+			$this->deleteFolders = array(
+				'/templates/nature/css',
+				'/templates/nature/fonts',
+				'/templates/nature/js',
+				'/templates/nature/images'
+			);
+
+			$this->removeFiles();
 		}
 	}
+
 }
