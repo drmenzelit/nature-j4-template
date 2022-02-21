@@ -32,7 +32,7 @@ $pageclass  = $menu->getActive() !== null ? $menu->getActive()->getParams()->get
 $params     = $this->params;
 
 // Template path
-$templatePath = 'templates/nature';
+$templatePath = 'media/templates/site/nature';
 
 // Icons
 $search = '<svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

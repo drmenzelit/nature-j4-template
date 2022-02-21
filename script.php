@@ -82,44 +82,23 @@ class NatureInstallerScript extends InstallerScript
 	{
 		$db = Factory::getContainer()->get('DatabaseDriver');
 
-		function ($template) use ($db)
+		$template = 'nature';
+		$clientId = 0;
+		$query = $db->getQuery(true)
+			->update($db->quoteName('#__template_styles'))
+			->set($db->quoteName('inheritable') . ' = 1')
+			->where($db->quoteName('template') . ' = ' . $db->quote($template))
+			->where($db->quoteName('client_id') . ' = ' . $clientId);
+
+		try
 		{
-			$clientId = 0;
-			$query = $db->getQuery(true)
-				->update($db->quoteName('#__template_styles'))
-				->set($db->quoteName('inheritable') . ' = 1')
-				->where($db->quoteName('template')  .  ' = ' . "nature")
-				->where($db->quoteName('client_id') . ' = ' . $clientId);
-
-			try
-			{
-				$db->setQuery($query)->execute();
-			}
-			catch (Exception $e)
-			{
-				echo Text::sprintf('JLIB_DATABASE_ERROR_FUNCTION_FAILED', $e->getCode(), $e->getMessage()) . '<br>';
-
-				return;
-			}
-		};
-	}
-
-		/**
-	 * Function to act prior to installation process begins
-	 *
-	 * @param   string     $action     Which action is happening (install|uninstall|discover_install|update)
-	 * @param   Installer  $installer  The class calling this method
-	 *
-	 * @return  boolean  True on success
-	 *
-	 * @since   3.7.0
-	 */
-	public function preflight($action, $installer)
-	{
-		if ($action === 'update')
+			$db->setQuery($query)->execute();
+		}
+		catch (Exception $e)
 		{
-			// Ensure templates are moved to the correct mode
-			$this->fixTemplateMode();
+			echo Text::sprintf('JLIB_DATABASE_ERROR_FUNCTION_FAILED', $e->getCode(), $e->getMessage()) . '<br>';
+
+			return;
 		}
 	}
 
@@ -147,6 +126,9 @@ class NatureInstallerScript extends InstallerScript
 			);
 
 			$this->removeFiles();
+
+			// Ensure templates are moved to the correct mode
+			$this->fixTemplateMode();
 		}
 	}
 
