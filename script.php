@@ -116,21 +116,76 @@ class NatureInstallerScript extends InstallerScript
 	{
 		if ($type == 'update')
 		{
-			$this->deleteFolders = array(
-				'/templates/nature/css',
-				'/templates/nature/fonts',
-				'/templates/nature/js',
+			$foldersBefore = array(
+				'/templates/nature/css/global',
+				'/templates/nature/css/system',
+				'/templates/nature/css/vendor',
 				'/templates/nature/images'
 			);
 
-			$this->deleteFiles = array(
+			$folders = array(
+				'/templates/nature/css',
+				'/templates/nature/fonts',
+				'/templates/nature/js',
+			);
+
+			$files = array(
+				'/templates/nature/css/bootstrap-icons.css',
+				'/templates/nature/css/bootstrap-icons.min.css',
+				'/templates/nature/css/icons.css',
+				'/templates/nature/css/icons.min.css',
+				'/templates/nature/css/metismenu.css',
+				'/templates/nature/css/metismenu.min.css',
+				'/templates/nature/css/offline.css',
+				'/templates/nature/css/offline.min.css',
+				'/templates/nature/css/quotes.css',
+				'/templates/nature/css/quotes.min.css',
+				'/templates/nature/css/template.css',
+				'/templates/nature/css/template.min.css',
+				'/templates/nature/css/timeline.css',
+				'/templates/nature/css/timeline.min.css',
+				'/templates/nature/fonts/bootstrap-icons.woff',
+				'/templates/nature/fonts/bootstrap-icons.woff2',
+				'/templates/nature/fonts/palanquin-v6-latin-300.eot',
+				'/templates/nature/fonts/palanquin-v6-latin-300.svg',
+				'/templates/nature/fonts/palanquin-v6-latin-300.ttf',
+				'/templates/nature/fonts/palanquin-v6-latin-300.woff',
+				'/templates/nature/fonts/palanquin-v6-latin-300.woff2',
+				'/templates/nature/fonts/palanquin-v6-latin-600.eot',
+				'/templates/nature/fonts/palanquin-v6-latin-600.svg',
+				'/templates/nature/fonts/palanquin-v6-latin-600.ttf',
+				'/templates/nature/fonts/palanquin-v6-latin-600.woff',
+				'/templates/nature/fonts/palanquin-v6-latin-600.woff2',
+				'/templates/nature/js/template.js',
 				'/templates/nature/template_preview.png',
 				'/templates/nature/template_thumbnail.png'
 			);
 
-			$this->removeFiles();
+			foreach ($files as $file)
+			{
+				if ($fileExists = File::exists(JPATH_ROOT . $file))
+				{
+					File::delete(JPATH_ROOT . $file);
+				}
+			}
+
+			foreach ($foldersBefore as $folder)
+			{
+				if ($folderExists = Folder::exists(JPATH_ROOT . $folder))
+				{
+					Folder::delete(JPATH_ROOT . $folder);
+				}
+			}
 
 			$this->moveTemplateFiles();
+
+			foreach ($folders as $folder)
+			{
+				if ($folderExists = Folder::exists(JPATH_ROOT . $folder))
+				{
+					Folder::delete(JPATH_ROOT . $folder);
+				}
+			}
 
 			// Ensure templates are moved to the correct mode
 			$this->fixTemplateMode();
