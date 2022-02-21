@@ -116,8 +116,6 @@ class NatureInstallerScript extends InstallerScript
 	{
 		if ($type == 'update')
 		{
-			$this->moveTemplateFiles();
-
 			$this->deleteFolders = array(
 				'/templates/nature/css',
 				'/templates/nature/fonts',
@@ -131,6 +129,8 @@ class NatureInstallerScript extends InstallerScript
 			);
 
 			$this->removeFiles();
+
+			$this->moveTemplateFiles();
 
 			// Ensure templates are moved to the correct mode
 			$this->fixTemplateMode();
