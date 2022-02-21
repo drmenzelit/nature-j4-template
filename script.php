@@ -125,6 +125,11 @@ class NatureInstallerScript extends InstallerScript
 				'/templates/nature/images'
 			);
 
+			$this->deleteFiles = array(
+				'/templates/nature/template_preview.png',
+				'/templates/nature/template_thumbnail.png'
+			);
+
 			$this->removeFiles();
 
 			// Ensure templates are moved to the correct mode
