@@ -11,7 +11,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.0/nature-j4-template-1.1.0.zip</downloadurl>
 		</downloads>
-		<sha512>acd27e992760cb6b3ebf36dd324af7da7160dbf2dd87d751f750ff362e227818d67259f4642f5372454628c06a13eb546dd8ead7fc4eae5bed66e5488cc576af</sha512>
+		<sha512>ccdacd8c033b456928853eddfd0f9d5424a7840f43dd115c76b35b14f961918d33c4376ce59010bdd555f0d759656e3e529bb819dd7597656b850bbad5ab827c</sha512>
 		<maintainer>Viviana Menzel</maintainer>
 		<maintainerurl>https://www.dr-menzel-it.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
