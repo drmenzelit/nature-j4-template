@@ -15,6 +15,6 @@
 		<maintainer>Viviana Menzel</maintainer>
 		<maintainerurl>https://www.dr-menzel-it.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
-		<targetplatform name="joomla" version="4\.0"/>
+		<targetplatform name="joomla" version="4.[1234567890]"/>
 	</update>
 </updates>
