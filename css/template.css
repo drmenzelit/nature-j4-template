@@ -252,6 +252,9 @@ button[class*="plg_system_webauthn_login_button"] {
   background-color: #eaedf0;
   border: 1px solid #ced4da;
 }
+button.input-password-toggle {
+  padding: .6rem 1rem;
+}
 input[type="checkbox"] {
   -webkit-margin-start: 0;
           margin-inline-start: 0;

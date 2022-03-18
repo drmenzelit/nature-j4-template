@@ -121,7 +121,7 @@ if ($this->countModules('sidebar-right', true))
 $stickyHeader = $params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
 
 // Favicons
-include 'includes/favicons.php';
+include 'templates/nature/includes/favicons.php';
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 ?>
@@ -130,7 +130,7 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 	<jdoc:include type="metas" />
-	<?php include "includes/style.php";?>
+	<?php include "templates/nature/includes/style.php";?>
 	<jdoc:include type="styles" />
 	<jdoc:include type="scripts" />
 </head>
