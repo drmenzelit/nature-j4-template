@@ -952,7 +952,7 @@ main {
 }
 /* Pagination */
 .pagenavigation {
-  margin-top: var(--s2) 0;
+  margin: var(--s2) 0;
   clear: both;
 }
 .pagenavigation .pagination {
