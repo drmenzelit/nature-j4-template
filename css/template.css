@@ -952,6 +952,7 @@ main {
 }
 /* Pagination */
 .pagenavigation {
+  margin-top: var(--s2) 0;
   clear: both;
 }
 .pagenavigation .pagination {
@@ -959,7 +960,7 @@ main {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.pagination li.next:only-child {
+.pagination a.next:only-child {
   margin-left: auto;
 }
 .pagination-toolbar .pagination {
