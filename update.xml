@@ -2,14 +2,14 @@
 <updates>
 	<update>
 		<name>Nature 1.1.3</name>
-		<description>Nature J4 Template - This update makes Nature child template capable</description>
+		<description>Nature J4 Template - Corrected logo rendering</description>
 		<element>nature</element>
 		<type>template</type>
 		<client>site</client>
 		<version>1.1.3</version>
 		<infourl title="Nature J4 Template">https://github.com/drmenzelit/nature-j4-template</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.2/nature-j4-template-1.1.3.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.3/nature-j4-template-1.1.3.zip</downloadurl>
 		</downloads>
 		<sha512>0e395180f9705a590264951e7c13ef28674914620408d337b5a88aaeb89490a36bd55a45ed2b83bfbc0250970c01ca2a1d216c5fc0cca3bbf88b1031d02e3e8d</sha512>
 		<maintainer>Viviana Menzel</maintainer>
