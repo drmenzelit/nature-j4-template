@@ -1,17 +1,17 @@
 <?xml version="1.0" ?>
 <updates>
 	<update>
-		<name>Nature 1.1.2</name>
+		<name>Nature 1.1.3</name>
 		<description>Nature J4 Template - This update makes Nature child template capable</description>
 		<element>nature</element>
 		<type>template</type>
 		<client>site</client>
-		<version>1.1.2</version>
+		<version>1.1.3</version>
 		<infourl title="Nature J4 Template">https://github.com/drmenzelit/nature-j4-template</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.2/nature-j4-template-1.1.2.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.2/nature-j4-template-1.1.3.zip</downloadurl>
 		</downloads>
-		<sha512>c72425714b0c6c30a0319bb82d908b73725743cf57b648ad699f97c2ad8ec933d079f9da7ead6e2e08329dea78c9d7f9e416e68147e9280c7fd849928a5074ec</sha512>
+		<sha512>0e395180f9705a590264951e7c13ef28674914620408d337b5a88aaeb89490a36bd55a45ed2b83bfbc0250970c01ca2a1d216c5fc0cca3bbf88b1031d02e3e8d</sha512>
 		<maintainer>Viviana Menzel</maintainer>
 		<maintainerurl>https://www.dr-menzel-it.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
