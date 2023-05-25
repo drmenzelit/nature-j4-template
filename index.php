@@ -10,9 +10,8 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Uri\Uri;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
@@ -58,21 +57,21 @@ $hasBurger = '';
 
 if ($params->get('burgerMenu') == 1)
 {
-	$hasBurger .= 'navbar__with-burger';
+    $hasBurger .= 'navbar__with-burger';
 }
 
 // Load Icons
 if ($params->get('icons') == 1)
 {
-	$wa->useStyle('fontawesome');
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+    $wa->useStyle('fontawesome');
+    $this->getPreloadManager()->preload($wa->getAsset('style', 'fontawesome')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 elseif ($params->get('icons') == 2)
 {
-	$wa->registerAndUseStyle('bi-icons', $templatePath . '/css/bootstrap-icons.css');
-	$wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'bi-icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
-	$this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+    $wa->registerAndUseStyle('bi-icons', $templatePath . '/css/bootstrap-icons.css');
+    $wa->registerAndUseStyle('icons', $templatePath . '/css/icons.css');
+    $this->getPreloadManager()->preload($wa->getAsset('style', 'bi-icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+    $this->getPreloadManager()->preload($wa->getAsset('style', 'icons')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 
 // Use a font scheme if set in the template style options
@@ -80,42 +79,58 @@ $paramsFontScheme = $params->get('useFontScheme', false);
 
 if ($paramsFontScheme)
 {
-	$assetFontScheme = 'fontscheme.' . $paramsFontScheme;
-	$wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
-	$this->getPreloadManager()->preload($wa->getAsset('style', $assetFontScheme)->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+    $assetFontScheme = 'fontscheme.' . $paramsFontScheme;
+    $wa->registerAndUseStyle($assetFontScheme, $templatePath . '/css/global/' . $paramsFontScheme . '.css');
+    $this->getPreloadManager()->preload($wa->getAsset('style', $assetFontScheme)->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 }
 
 // Enable assets
 $wa->useStyle('template.nature')
-	->useScript('template.nature')
-	->useStyle('template.user')
-	->useScript('template.user');
+    ->useScript('template.nature')
+    ->useStyle('template.user')
+    ->useScript('template.user');
 $this->getPreloadManager()->preload($wa->getAsset('style', 'template.nature')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
 
 // Logo file or site title param
 if ($params->get('logoFile'))
 {
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+    $imageAttr = [
+        'src'      => $params->get('logoFile'),
+        'class'    => 'logo',
+        'alt'      => $sitename,
+        'loading'  => 'eager',
+        'decoding' => 'async'
+    ];
+    $logo = LayoutHelper::render('joomla.html.image', $imageAttr);
 }
 elseif ($params->get('siteTitle'))
 {
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+    $logo = '<span title="' . $sitename . '">' . htmlspecialchars($params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {
-	$logo = '<img src="' . $templatePath . '/images/nature-logo.png" class="logo" alt="' . $sitename . '">';
+    $imageAttr = [
+        'src'      => $templatePath . '/images/nature-logo.png',
+        'class'    => 'logo',
+        'width'    => '250',
+        'height'   => '92',
+        'alt'      => $sitename,
+        'loading'  => 'eager',
+        'decoding' => 'async'
+    ];
+    $logo = LayoutHelper::render('joomla.html.image', $imageAttr);
 }
 
 $hasClass = '';
 
 if ($this->countModules('sidebar-left', true))
 {
-	$hasClass .= 'with-sidebar-left';
+    $hasClass .= 'with-sidebar-left';
 }
 
 if ($this->countModules('sidebar-right', true))
 {
-	$hasClass .= 'with-sidebar-right';
+    $hasClass .= 'with-sidebar-right';
 }
 
 $stickyHeader = $params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
@@ -129,212 +144,212 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-	<jdoc:include type="metas" />
-	<?php include "templates/nature/includes/style.php";?>
-	<jdoc:include type="styles" />
-	<jdoc:include type="scripts" />
+    <jdoc:include type="metas" />
+    <?php include "templates/nature/includes/style.php";?>
+    <jdoc:include type="styles" />
+    <jdoc:include type="scripts" />
 </head>
 <body class="site <?php echo $option
-	. ' view-' . $view
-	. ($layout ? ' layout-' . $layout : ' no-layout')
-	. ($task ? ' task-' . $task : ' no-task')
-	. ($itemid ? ' itemid-' . $itemid : '')
+    . ' view-' . $view
+    . ($layout ? ' layout-' . $layout : ' no-layout')
+    . ($task ? ' task-' . $task : ' no-task')
+    . ($itemid ? ' itemid-' . $itemid : '')
   . (($menu->getActive() == $menu->getDefault()) ? ' front' : ' page')
-	. ' ' . $pageclass;
-	echo ($this->direction == 'rtl' ? ' rtl' : '');
+    . ' ' . $pageclass;
+    echo ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-	<?php if ($this->countModules('top-header', true)) : ?>
-		<div class="container-top-header">
-			<div class="wrapper">
-				<jdoc:include type="modules" name="top-header" style="none" />
-			</div>
-		</div>
-	<?php endif; ?>
-	<header class="header <?php echo $stickyHeader; ?>">
-		<a href="#main" class="skip-link">Skip to main content</a>
-		<div class="wrapper header__wrapper">
-			<?php if ($params->get('logoPosition')) : ?>
-				<?php if ($this->countModules('logo', true)) : ?>
-					<div class="header__start navbar-brand">
-						<jdoc:include type="modules" name="logo" />
-					</div>
-				<?php endif; ?>
-			<?php else : ?>
-				<div class="header__start navbar-brand">
-					<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
-						<?php echo $logo; ?>
-					</a>
-					<?php if ($params->get('siteDescription')) : ?>
-						<div class="site-description"><?php echo htmlspecialchars($params->get('siteDescription')); ?></div>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
+    <?php if ($this->countModules('top-header', true)) : ?>
+        <div class="container-top-header">
+            <div class="wrapper">
+                <jdoc:include type="modules" name="top-header" style="none" />
+            </div>
+        </div>
+    <?php endif; ?>
+    <header class="header <?php echo $stickyHeader; ?>">
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <div class="wrapper header__wrapper">
+            <?php if ($params->get('logoPosition')) : ?>
+                <?php if ($this->countModules('logo', true)) : ?>
+                    <div class="header__start navbar-brand">
+                        <jdoc:include type="modules" name="logo" />
+                    </div>
+                <?php endif; ?>
+            <?php else : ?>
+                <div class="header__start navbar-brand">
+                    <a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+                        <?php echo $logo; ?>
+                    </a>
+                    <?php if ($params->get('siteDescription')) : ?>
+                        <div class="site-description"><?php echo htmlspecialchars($params->get('siteDescription')); ?></div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
 
-			<?php if (($this->countModules('menu', true)) || ($this->countModules('search', true))) : ?>
-			<div class="header__end">
-				<?php if ($this->countModules('menu', true)) : ?>
-					<nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
+            <?php if (($this->countModules('menu', true)) || ($this->countModules('search', true))) : ?>
+            <div class="header__end">
+                <?php if ($this->countModules('menu', true)) : ?>
+                    <nav class="navbar-top <?php echo $hasBurger; ?>" aria-label="Top Navigation" id="menu">
 
-					<?php if ($params->get('burgerMenu') == 1): ?>
-						<button class="nav__toggle" aria-expanded="false" type="button" aria-label="Open navigation"><?php echo $open; ?></button>
-					<?php endif; ?>
-						<jdoc:include type="modules" name="menu" />
-					</nav>
-				<?php endif; ?>
+                    <?php if ($params->get('burgerMenu') == 1): ?>
+                        <button class="nav__toggle" aria-expanded="false" type="button" aria-label="Open navigation"><?php echo $open; ?></button>
+                    <?php endif; ?>
+                        <jdoc:include type="modules" name="menu" />
+                    </nav>
+                <?php endif; ?>
 
-				<?php if ($this->countModules('search', true)) : ?>
-				<div class="search">
-					<button class="search__toggle" aria-label="Open search"><?php echo $search; ?></button>
-					<div class="container-search">
-						<jdoc:include type="modules" name="search" />
-					</div>
-				</div>
-				<?php endif; ?>
-			</div>
-			<?php endif; ?>
-		</div>
-	</header>
+                <?php if ($this->countModules('search', true)) : ?>
+                <div class="search">
+                    <button class="search__toggle" aria-label="Open search"><?php echo $search; ?></button>
+                    <div class="container-search">
+                        <jdoc:include type="modules" name="search" />
+                    </div>
+                </div>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+        </div>
+    </header>
 
-	<?php if ($this->countModules('banner', true)) : ?>
-		<div class="container-banner">
-			<jdoc:include type="modules" name="banner" />
-		</div>
-	<?php endif; ?>
+    <?php if ($this->countModules('banner', true)) : ?>
+        <div class="container-banner">
+            <jdoc:include type="modules" name="banner" />
+        </div>
+    <?php endif; ?>
 
-	<?php if ($this->countModules('top-a', true)) : ?>
-	<div class="container-top-a <?php echo ($params->get('topa') == 1 ? 'with-wrapper' : ''); ?>">
-		<div class="grid <?php echo $params->get('topa') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topacols'); ?>">
-			<jdoc:include type="modules" name="top-a" />
-		</div>
-	</div>
-	<?php endif; ?>
+    <?php if ($this->countModules('top-a', true)) : ?>
+    <div class="container-top-a <?php echo ($params->get('topa') == 1 ? 'with-wrapper' : ''); ?>">
+        <div class="grid <?php echo $params->get('topa') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topacols'); ?>">
+            <jdoc:include type="modules" name="top-a" />
+        </div>
+    </div>
+    <?php endif; ?>
 
-	<?php if ($this->countModules('top-b', true)) : ?>
-		<?php if ($params->get('topbdiv') != 0) : ?>
-		<div class="custom-shape-divider top-b">
-			<?php if ($params->get('topbdiv') == 1) : ?>
-				<?php echo $wave; ?>
-			<?php endif; ?>
+    <?php if ($this->countModules('top-b', true)) : ?>
+        <?php if ($params->get('topbdiv') != 0) : ?>
+        <div class="custom-shape-divider top-b">
+            <?php if ($params->get('topbdiv') == 1) : ?>
+                <?php echo $wave; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('topbdiv') == 2) : ?>
-				<?php echo $tiltr; ?>
-			<?php endif; ?>
+            <?php if ($params->get('topbdiv') == 2) : ?>
+                <?php echo $tiltr; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('topbdiv') == 3) : ?>
-				<?php echo $tiltl; ?>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
-		<div class="container-top-b <?php echo ($params->get('topb') == 1 ? 'with-wrapper' : ''); ?>">
-			<div class="grid <?php echo $params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topbcols'); ?>">
-				<jdoc:include type="modules" name="top-b" />
-			</div>
-		</div>
-	<?php endif; ?>
+            <?php if ($params->get('topbdiv') == 3) : ?>
+                <?php echo $tiltl; ?>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+        <div class="container-top-b <?php echo ($params->get('topb') == 1 ? 'with-wrapper' : ''); ?>">
+            <div class="grid <?php echo $params->get('topb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('topbcols'); ?>">
+                <jdoc:include type="modules" name="top-b" />
+            </div>
+        </div>
+    <?php endif; ?>
 
-	<?php if ($this->countModules('breadcrumbs', true)) : ?>
-		<jdoc:include type="modules" name="breadcrumbs" />
-	<?php endif; ?>
+    <?php if ($this->countModules('breadcrumbs', true)) : ?>
+        <jdoc:include type="modules" name="breadcrumbs" />
+    <?php endif; ?>
 
-	<main id="main" tabindex="-1">
-		<div class="wrapper">
-			<jdoc:include type="message" />
+    <main id="main" tabindex="-1">
+        <div class="wrapper">
+            <jdoc:include type="message" />
 
-			<div class="main-content <?php echo $hasClass; ?>">
+            <div class="main-content <?php echo $hasClass; ?>">
 
-				<?php if (($params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
-					<div class="container-sidebar sidebar--left">
-						<jdoc:include type="modules" name="sidebar-left" style="html5" />
-					</div>
-				<?php endif; ?>
+                <?php if (($params->get('sidebar') == 0) && ($this->countModules('sidebar-left', true))) : ?>
+                    <div class="container-sidebar sidebar--left">
+                        <jdoc:include type="modules" name="sidebar-left" style="html5" />
+                    </div>
+                <?php endif; ?>
 
-				<div class="container-content">
+                <div class="container-content">
 
-					<?php if ($this->countModules('main-top', true)) : ?>
-					<jdoc:include type="modules" name="main-top" />
-					<?php endif; ?>
+                    <?php if ($this->countModules('main-top', true)) : ?>
+                    <jdoc:include type="modules" name="main-top" />
+                    <?php endif; ?>
 
-					<jdoc:include type="component" />
+                    <jdoc:include type="component" />
 
-					<?php if ($this->countModules('main-bottom', true)) : ?>
-					<jdoc:include type="modules" name="main-bottom" />
-					<?php endif; ?>
+                    <?php if ($this->countModules('main-bottom', true)) : ?>
+                    <jdoc:include type="modules" name="main-bottom" />
+                    <?php endif; ?>
 
-				</div>
+                </div>
 
-				<?php if (($params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
-					<div class="container-sidebar sidebar--right">
-						<jdoc:include type="modules" name="sidebar-right" style="html5" />
-					</div>
-				<?php endif; ?>
+                <?php if (($params->get('sidebar') == 1) && ($this->countModules('sidebar-right', true))) : ?>
+                    <div class="container-sidebar sidebar--right">
+                        <jdoc:include type="modules" name="sidebar-right" style="html5" />
+                    </div>
+                <?php endif; ?>
 
-			</div>
-		</div>
-	</main>
+            </div>
+        </div>
+    </main>
 
-	<?php if ($this->countModules('bottom-a', true)) : ?>
-		<?php if ($params->get('bottomadiv') != 0) : ?>
-		<div class="custom-shape-divider bottom-a">
-			<?php if ($params->get('bottomadiv') == 1) : ?>
-				<?php echo $wave; ?>
-			<?php endif; ?>
+    <?php if ($this->countModules('bottom-a', true)) : ?>
+        <?php if ($params->get('bottomadiv') != 0) : ?>
+        <div class="custom-shape-divider bottom-a">
+            <?php if ($params->get('bottomadiv') == 1) : ?>
+                <?php echo $wave; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('bottomadiv') == 2) : ?>
-				<?php echo $tiltr; ?>
-			<?php endif; ?>
+            <?php if ($params->get('bottomadiv') == 2) : ?>
+                <?php echo $tiltr; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('bottomadiv') == 3) : ?>
-				<?php echo $tiltl; ?>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
-		<div class="container-bottom-a <?php echo ($params->get('bottoma') == 1 ? 'with-wrapper' : ''); ?>">
-			<div class="grid <?php echo $params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottomacols'); ?>">
-				<jdoc:include type="modules" name="bottom-a" style="html5" />
-			</div>
-		</div>
-	<?php endif; ?>
+            <?php if ($params->get('bottomadiv') == 3) : ?>
+                <?php echo $tiltl; ?>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+        <div class="container-bottom-a <?php echo ($params->get('bottoma') == 1 ? 'with-wrapper' : ''); ?>">
+            <div class="grid <?php echo $params->get('bottoma') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottomacols'); ?>">
+                <jdoc:include type="modules" name="bottom-a" style="html5" />
+            </div>
+        </div>
+    <?php endif; ?>
 
-	<?php if ($this->countModules('bottom-b', true)) : ?>
-		<?php if ($params->get('bottombdiv') != 0) : ?>
-		<div class="custom-shape-divider bottom-b">
-			<?php if ($params->get('bottombdiv') == 1) : ?>
-				<?php echo $wave; ?>
-			<?php endif; ?>
+    <?php if ($this->countModules('bottom-b', true)) : ?>
+        <?php if ($params->get('bottombdiv') != 0) : ?>
+        <div class="custom-shape-divider bottom-b">
+            <?php if ($params->get('bottombdiv') == 1) : ?>
+                <?php echo $wave; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('bottombdiv') == 2) : ?>
-				<?php echo $tiltr; ?>
-			<?php endif; ?>
+            <?php if ($params->get('bottombdiv') == 2) : ?>
+                <?php echo $tiltr; ?>
+            <?php endif; ?>
 
-			<?php if ($params->get('bottombdiv') == 3) : ?>
-				<?php echo $tiltl; ?>
-			<?php endif; ?>
-		</div>
-		<?php endif; ?>
-		<div class="container-bottom-b <?php echo ($params->get('bottomb') == 1 ? 'with-wrapper' : ''); ?>">
-			<div class="grid <?php echo $params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottombcols'); ?>">
-				<jdoc:include type="modules" name="bottom-b" />
-			</div>
-		</div>
-	<?php endif; ?>
+            <?php if ($params->get('bottombdiv') == 3) : ?>
+                <?php echo $tiltl; ?>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+        <div class="container-bottom-b <?php echo ($params->get('bottomb') == 1 ? 'with-wrapper' : ''); ?>">
+            <div class="grid <?php echo $params->get('bottomb') ? 'wrapper' : 'full-width'; ?> columns-<?php echo $params->get('bottombcols'); ?>">
+                <jdoc:include type="modules" name="bottom-b" />
+            </div>
+        </div>
+    <?php endif; ?>
 
-	<?php if ($this->countModules('footer', true)) : ?>
-	<footer class="container-footer">
-		<div class="wrapper container-footer_wrapper">
-			<jdoc:include type="modules" name="footer" />
-		</div>
-	</footer>
-	<?php endif; ?>
+    <?php if ($this->countModules('footer', true)) : ?>
+    <footer class="container-footer">
+        <div class="wrapper container-footer_wrapper">
+            <jdoc:include type="modules" name="footer" />
+        </div>
+    </footer>
+    <?php endif; ?>
 
-	<?php if ($params->get('backTop') == 1) : ?>
-		<div class="back-to-top-wrapper">
-			<a href="#top" id="back-top" class="back-to-top-link" aria-label="<?php echo Text::_('TPL_NATURE_BACKTOTOP'); ?>">
-				<span class="arrow-up" aria-hidden="true">&#9650;</span>
-			</a>
-		</div>
-	<?php endif; ?>
+    <?php if ($params->get('backTop') == 1) : ?>
+        <div class="back-to-top-wrapper">
+            <a href="#top" id="back-top" class="back-to-top-link" aria-label="<?php echo Text::_('TPL_NATURE_BACKTOTOP'); ?>">
+                <span class="arrow-up" aria-hidden="true">&#9650;</span>
+            </a>
+        </div>
+    <?php endif; ?>
 
-	<jdoc:include type="modules" name="debug" style="none" />
+    <jdoc:include type="modules" name="debug" style="none" />
 
 </body>
 </html>
