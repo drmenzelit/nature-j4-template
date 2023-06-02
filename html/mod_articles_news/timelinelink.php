@@ -28,9 +28,13 @@ if (!$list)
         <div class="timeline-icon">
         </div>
         <div class="timeline-content">
-            <h2><?php echo $item->title; ?></h2>
+            <h2>
+                <a href="<?php echo $item->link; ?>">
+                    <?php echo $item->title; ?>
+                </a>
+            </h2>
             <?php if ($params->get('img_intro_full') !== 'none' && !empty($item->imageSrc)) : ?>
-            <figure class="newsflash-image">
+                <figure class="newsflash-image">
                 <?php echo LayoutHelper::render(
                     'joomla.html.image',
                     [

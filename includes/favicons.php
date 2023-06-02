@@ -1,13 +1,14 @@
 <?php
 
 defined('_JEXEC') or die;
-use Joomla\CMS\HTML\HTMLHelper;
 
-$path = '';
+use Joomla\CMS\Uri\Uri;
+
+$path = Uri::root(true)  . '/';
 
 if ($params->get('favicons') == 0)
 {
-	$path = $templatePath . '/';
+    $path = Uri::root(true)  . '/' . $templatePath . '/';
 }
 
 // Favicons

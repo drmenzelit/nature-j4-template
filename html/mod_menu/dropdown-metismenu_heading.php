@@ -16,7 +16,7 @@ $attributes = [];
 
 if ($item->anchor_title)
 {
-	$attributes['title'] = $item->anchor_title;
+    $attributes['title'] = $item->anchor_title;
 }
 
 $attributes['class'] = 'mod-menu__heading nav-header';
@@ -26,28 +26,28 @@ $linktype = $item->title;
 
 if ($item->menu_image)
 {
-	$linktype = HTMLHelper::image($item->menu_image, $item->title);
+    $linktype = HTMLHelper::image($item->menu_image, $item->title);
 
-	if ($item->menu_image_css)
-	{
-		$image_attributes['class'] = $item->menu_image_css;
-		$linktype                  = HTMLHelper::image($item->menu_image, $item->title, $image_attributes);
-	}
+    if ($item->menu_image_css)
+    {
+        $image_attributes['class'] = $item->menu_image_css;
+        $linktype                  = HTMLHelper::image($item->menu_image, $item->title, $image_attributes);
+    }
 
-	if ($itemParams->get('menu_text', 1))
-	{
-		$linktype .= '<span class="image-title">' . $item->title . '</span>';
-	}
+    if ($itemParams->get('menu_text', 1))
+    {
+        $linktype .= '<span class="image-title">' . $item->title . '</span>';
+    }
 }
 
 if ($showAll && $item->deeper)
 {
-	$attributes['class'] .= ' mm-collapsed mm-toggler mm-toggler-nolink';
-	$attributes['aria-haspopup'] = 'true';
-	$attributes['aria-expanded'] = 'false';
-	echo '<button ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</button>';
+    $attributes['class'] .= ' mm-collapsed mm-toggler mm-toggler-nolink';
+    $attributes['aria-haspopup'] = 'true';
+    $attributes['aria-expanded'] = 'false';
+    echo '<button ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</button>';
 }
 else
 {
-	echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
+    echo '<span ' . ArrayHelper::toString($attributes) . '>' . $linktype . '</span>';
 }
