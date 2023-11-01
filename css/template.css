@@ -131,10 +131,8 @@ select {
   *::before,
   *::after {
     transition-duration: .01ms !important;
-    -webkit-animation-duration: .01ms !important;
-            animation-duration: .01ms !important;
-    -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
 }
@@ -256,10 +254,8 @@ button.input-password-toggle {
   padding: .6rem 1rem;
 }
 input[type="checkbox"] {
-  -webkit-margin-start: 0;
-          margin-inline-start: 0;
-  -webkit-margin-end: .5rem;
-          margin-inline-end: .5rem;
+  margin-inline-start: 0;
+  margin-inline-end: .5rem;
   margin-block: 0;
 }
 .form-check,
@@ -383,7 +379,6 @@ figcaption {
   border: 0;
 }
 .position-sticky {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -402,7 +397,6 @@ iframe {
   right: 5em;
   z-index: 1070;
   display: none;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: .5em;
@@ -994,7 +988,6 @@ main {
 }
 .back-to-top-link {
   position: fixed;
-  position: -webkit-sticky;
   position: sticky;
   top: calc(100vh - 5rem);
   padding: var(--s1);
@@ -1214,8 +1207,8 @@ footer .nav-item.active a {
   align-items: center;
 }
 .mod-breadcrumbs a,
-.mod-breadcrumbs li > span {
-  padding: calc(var(--s1));
+.mod-breadcrumbs li > span:not(.divider) {
+  padding: var(--s1);
 }
 .mod-breadcrumbs li:after {
   content: "|";

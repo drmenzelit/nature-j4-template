@@ -83,6 +83,7 @@
 }
 .metismenu.mod-menu .mm-collapse > li > a {
   display: inline-flex;
+  align-items: center;
 }
 .metismenu.mod-menu .mm-collapse > li.divider:not(.parent) {
   width: auto;
@@ -110,7 +111,6 @@
   color: currentColor;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   background: none;
   border: none;
@@ -178,4 +178,3 @@
 .sidebar--left .metismenu .metismenu-item > button:hover {
   color: var(--linkcolorh);
 }
-

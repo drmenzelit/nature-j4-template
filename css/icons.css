@@ -28,6 +28,7 @@
 .icon-folder-open::before { content: "\f3d7"; }
 .icon-home::before { content: "\f425"; }
 .icon-info-circle::before { content: "\f431"; }
+.icon-location::before { content: "\f3e8"; }
 .icon-minus::before { content: "\f173"; }
 .icon-mobile::before { content: "\f4e7"; }
 .icon-phone::before { content: "\f5c1"; }
