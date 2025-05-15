@@ -227,6 +227,10 @@ button[class*="plg_system_webauthn_login_button"] {
   gap: .5rem;
   width: 100%;
 }
+.plg_system_webauthn_login_button svg {
+  width: 30px;
+  margin: 4px;
+}
 .input-group {
   position: relative;
   display: flex;
@@ -293,6 +297,12 @@ input[type="checkbox"] {
 }
 .control-group {
   margin: var(--s1) 0;
+}
+.mod-login__remember {
+  margin-block-end: 1rem;
+}
+.w-100 {
+  width: 100%;
 }
 a {
   color: var(--linkcolor);

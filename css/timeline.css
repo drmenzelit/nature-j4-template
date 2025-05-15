@@ -55,6 +55,9 @@
   font-size: 1.5rem;
   color: #fff;
   background: var(--btnbg);
+  a {
+    color: #fff;
+  }
 }
 #timeline .timeline-item .timeline-content p {
   margin-top: var(--s1);

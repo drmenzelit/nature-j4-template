@@ -1,20 +1,20 @@
 <?xml version="1.0" ?>
 <updates>
 	<update>
-		<name>Nature 1.1.5</name>
-		<description>Nature J4 Template - Add icons to metismenu (dropdown)</description>
+		<name>Nature 1.1.6</name>
+		<description>Nature Joomla Template</description>
 		<element>nature</element>
 		<type>template</type>
 		<client>site</client>
-		<version>1.1.5</version>
-		<infourl title="Nature J4 Template">https://github.com/drmenzelit/nature-j4-template</infourl>
+		<version>1.1.6</version>
+		<infourl title="Nature Joomla Template">https://github.com/drmenzelit/nature-j4-template</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.5/nature-j4-template-1.1.5.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/drmenzelit/nature-j4-template/releases/download/1.1.6/nature-template-1.1.6.zip</downloadurl>
 		</downloads>
-		<sha512>6986193b2a273d73765ec2354a377c108a2d0c242ec630bd80a75e8c2a3a9baea0d29d8112da2eaf9095245e22175fb690b137fa2d91f4fd617e7af681c7e06b</sha512>
+		<sha512>071d6f55033bb5e621a09f4bc774c485e5ce5a5ef80f7092ae74cf5c14235a9d8a76ab995d0da083d660169bf0465cefba45d766558fa0cf54ed2dc88b9987c7</sha512>
 		<maintainer>Viviana Menzel</maintainer>
 		<maintainerurl>https://www.dr-menzel-it.de</maintainerurl>
 		<php_minimum>7.2.5</php_minimum>
-		<targetplatform name="joomla" version="4.[1234567890]"/>
+		<targetplatform name="joomla" version="[45].[1234567890]"/>
 	</update>
 </updates>
